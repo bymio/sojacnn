@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 const Home = () => import('../views/home/Home')
-// const Category = () => import('../views/category/Category.vue')
+const Policy = () => import('../views/policy/Policy.vue')
 const GsoSP = () => import('../views/gsosp/GsoSP.vue')
 // const Profile = () => import('../views/profile/Profile.vue')
 // const body = () => import('../views/bodybar/BodyBar.vue')
@@ -21,10 +21,10 @@ const routes = [
     path: '/home',
     component: Home
   },
-  // {
-  //   path: '/category',
-  //   component: Category
-  // },
+  {
+    path: '/policy',
+    component: Policy
+  },
   {
     path: '/gsosp',
     component: GsoSP

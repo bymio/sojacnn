@@ -67,7 +67,7 @@ export default {
   height: 370px;
   /* background: yellowgreen; */
   position: absolute;
-  top: 320px;
+  top: 400px;
   right: 0px;
 }
 .links .links-header {

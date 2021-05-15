@@ -60,7 +60,7 @@ export default {
   height: 370px;
   /* background: yellowgreen; */
   position: absolute;
-  top: 320px;
+  top: 400px;
   left: 460px;
 }
 .work-news .work-news-header .work-news-header-title {

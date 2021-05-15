@@ -1,11 +1,12 @@
 <template>
   <div id="home">
     <banner></banner>
+
     <notice></notice>
     <work-news></work-news>
     <college-news></college-news>
     <links></links>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import Notice from "views/home/header/notice/Notice.vue";
 import WorkNews from "views/home/bottom/work-news/WorkNews.vue";
 import CollegeNews from "views/home/bottom/college-news/CollegeNews.vue";
 import Links from "views/home/bottom/links/Links.vue";
+
 export default {
   data() {
     return {
@@ -26,6 +28,7 @@ export default {
     WorkNews,
     CollegeNews,
     Links,
+
   },
   methods: {},
 };
