@@ -10,26 +10,30 @@
       <tab-bar-item path="/policy">
         <div slot="item-text">政策法规</div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
+      <tab-bar-item path="/scienceproject">
         <div slot="item-text">科普项目</div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
+      <tab-bar-item path="/academicexchange">
         <div slot="item-text">学术交流</div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
+      <tab-bar-item path="/businessguide">
         <div slot="item-text">办事指南</div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
+      <tab-bar-item path="/popularscience">
         <div slot="item-text">科普风采</div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
-        <div slot="item-text">学校首页</div>
+      <tab-bar-item>
+        <div slot="item-text">
+          <a href="https://www.pdsu.edu.cn/">学校首页</a>
+        </div>
       </tab-bar-item>
-      <tab-bar-item path="/1">
+      <tab-bar-item path="/contact">
         <div slot="item-text">联系我们</div>
       </tab-bar-item>
     </tab-bar>
+    <contact-information-bar></contact-information-bar>
   </div>
+
   <!-- <div class="navigation">
     <el-menu
       :default-active="activeIndex"
@@ -70,6 +74,7 @@
 
 <script>
 import TabBar from "components/common/tabbar/TabBar";
+import ContactInformationBar from "components/common/contact-information/ContactInformationBar";
 import TabBarItem from "components/common/tabbar/TabBarItem";
 export default {
   data() {
@@ -86,8 +91,9 @@ export default {
   components: {
     TabBar,
     TabBarItem,
+    ContactInformationBar,
   },
-}; 
+};
 </script>
 
 <style scoped>
@@ -95,6 +101,12 @@ export default {
   position: absolute;
   width: 1903px;
   height: 61px;
+  background: #1675e2;
+}
+a {
+  color: #fff;
+}
+a:hover {
   background: #1675e2;
 }
 /* .el-menu--horizontal > .el-menu-item.is-active {

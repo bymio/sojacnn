@@ -4,8 +4,11 @@ import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home')
 const Policy = () => import('../views/policy/Policy.vue')
 const GsoSP = () => import('../views/gsosp/GsoSP.vue')
-// const Profile = () => import('../views/profile/Profile.vue')
-// const body = () => import('../views/bodybar/BodyBar.vue')
+const ScienceProject = () => import('../views/scienceproject/ScienceProject.vue')
+const AcademicExchange = () => import('../views/academic-exchange/AcademicExchange.vue')
+const BusinessGuide = () => import('../views/business-guide/BusinessGuide.vue')
+const PopularScience = () => import('../views/popularscience/PopularScience.vue')
+const Contact = () => import('../views/contact/Contact.vue')
 
 
 // 1.安装插件
@@ -29,14 +32,26 @@ const routes = [
     path: '/gsosp',
     component: GsoSP
   },
-  // {
-  //   path: '/profile',
-  //   component: Profile
-  // },
-  // {
-  //   path: '/body',
-  //   component: body
-  // }
+  {
+    path: '/scienceproject',
+    component: ScienceProject
+  },
+  {
+    path: '/academicexchange',
+    component: AcademicExchange
+  },
+  {
+    path: '/businessguide',
+    component: BusinessGuide
+  },
+  {
+    path: '/popularscience',
+    component: PopularScience
+  },
+  {
+    path: '/contact',
+    component: Contact
+  },
 ]
 const router = new VueRouter({
   routes,
