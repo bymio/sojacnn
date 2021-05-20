@@ -33,10 +33,10 @@ export default {
   height: 2000px;
   /* background: yellowgreen; */
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 183px;
-  margin: 0 auto;
+  left: 351.5px;
+  right: 351.5px;
+  top: 181px;
   text-align: center;
+
 }
 </style>

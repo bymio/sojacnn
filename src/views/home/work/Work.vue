@@ -1,13 +1,12 @@
 <template>
-  <div class="contact">
-    <current-location></current-location>
-    <forms></forms>
+  <div class="work">
+    <sunstance></sunstance>
   </div>
 </template>
 
 <script>
-import CurrentLocation from "views/contact/header/current-location/CurrentLocation.vue";
-import Forms from "views/contact/bottom/forms/Forms.vue";
+import Substance from "views/home/work/substance/Substance.vue";
+
 export default {
   data() {
     return {
@@ -16,13 +15,13 @@ export default {
   },
   methods: {},
   components: {
-    CurrentLocation,
-    Forms,
+    Substance,
   },
 };
 </script>
+
 <style scoped>
-.contact {
+.work {
   width: 1200px;
   min-width: 1200px;
   height: 2000px;
@@ -31,7 +30,5 @@ export default {
   left: 351.5px;
   right: 351.5px;
   top: 181px;
-  text-align: center;
-
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="work-news-header">
       <div class="work-news-header-title">
         <h2>学院动态</h2>
-        <a href="#">更多></a>
+        <div @click="substanceClick" class="more">更多></div>
       </div>
     </div>
     <div class="body">
@@ -36,8 +36,6 @@
           <a href="#" title="">内容.....................</a>
           <span class="time">2021-3-3</span>
         </li>
-
-        
       </ul>
     </div>
   </div>
@@ -48,9 +46,14 @@ export default {
   data() {
     return {
       msg: "",
+      path: "/college",
     };
   },
-  methods: {},
+  methods: {
+    substanceClick() {
+      this.$router.push(this.path);
+    },
+  },
 };
 </script>
 
@@ -89,9 +92,10 @@ export default {
   margin-top: -7px;
   background-color: #006ed7;
 }
-.work-news .work-news-header .work-news-header-title a {
+.work-news .work-news-header .work-news-header-title .more {
   position: absolute;
   right: 0;
+  cursor: pointer;
   bottom: 5px;
   color: #666;
   font-size: 12px;

@@ -1,13 +1,48 @@
 <template>
-  <div class="work-news">
-    <div class="work-news-header">
-      <div class="work-news-header-title">
-        <h2>工作动态</h2>
-        <div @click="substanceClick" class="more">更多></div>
+  <div class="substance">
+    <div class="substance-header">
+      <div class="substance-header-title">
+        <h2>学院动态</h2>
       </div>
     </div>
     <div class="body">
       <ul class="list-group">
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
+        <li class="list-group-item">
+          <a href="#" title="">内容.....................</a>
+          <span class="time">2021-3-3</span>
+        </li>
         <li class="list-group-item">
           <a href="#" title="">内容.....................</a>
           <span class="time">2021-3-3</span>
@@ -46,34 +81,32 @@ export default {
   data() {
     return {
       msg: "",
-      path:'/work'
     };
   },
-  methods: {
-    substanceClick() {
-      this.$router.push(this.path);
-    },
-  },
+  methods: {},
 };
 </script>
 
 <style scoped>
-.work-news {
-  width: 380px;
-  height: 370px;
+.substance {
+  width: 1200px;
+  min-width: 1200px;
+  height: 2000px;
   /* background: yellowgreen; */
   position: absolute;
-  top: 400px;
-  left: 0px;
+  left: 351.5px;
+  right: 351.5px;
+  top: 181px;
 }
-.work-news .work-news-header .work-news-header-title {
+.substance .substance-header .substance-header-title {
+  margin-top: 20px;
   background-color: transparent;
   border: 0;
   padding: 0 0 10px;
   position: relative;
   border-bottom: 2px solid #006ed7;
 }
-.work-news .work-news-header .work-news-header-title h2 {
+.substance .substance-header .substance-header-title h2 {
   font-size: 20px;
   font-family: "微软雅黑", Arial, sans-serif;
   font-weight: 600;
@@ -82,7 +115,7 @@ export default {
   padding-left: 15px;
   position: relative;
 }
-.work-news .work-news-header .work-news-header-title h2::before {
+.substance .substance-header .substance-header-title h2::before {
   width: 5px;
   height: 15px;
   content: "";
@@ -91,14 +124,6 @@ export default {
   top: 50%;
   margin-top: -7px;
   background-color: #006ed7;
-}
-.work-news .work-news-header .work-news-header-title .more {
-  position: absolute;
-  cursor: pointer;
-  right: 0;
-  bottom: 5px;
-  color: #666;
-  font-size: 12px;
 }
 
 .body {

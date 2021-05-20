@@ -9,11 +9,11 @@
       </div>
     </el-card>
   </div> -->
-    <div class="notice">
+  <div class="notice">
     <div class="notice-header">
       <div class="notice-header-title">
         <h2>通知公告</h2>
-        <a href="#">更多></a>
+        <div class="more" @click="substanceClick">更多></div>
       </div>
     </div>
     <div class="body">
@@ -78,18 +78,23 @@ export default {
   data() {
     return {
       msg: "",
+      path:'/circulars'
     };
   },
-  methods: {},
+  methods: {
+    substanceClick(){
+      this.$router.push(this.path)
+    }
+  },
 };
 </script>
 
 <style scoped>
 .notice {
-  width: 580px;
+  width: 530px;
   position: absolute;
   top: 20px;
-  right: 0px;
+  right: -10px;
 }
 
 .notice .notice-header .notice-header-title {
@@ -123,7 +128,8 @@ export default {
   margin-left: 5px;
   background-color: #006ed7;
 }
-.notice .notice-header .notice-header-title a {
+.notice .notice-header .notice-header-title .more {
+  cursor: pointer;
   position: relative;
   right: -450px;
   bottom: 10px;
@@ -178,7 +184,7 @@ export default {
   margin-inline-end: 0px;
 }
 .body .body-item .item-right a {
+  cursor: pointer;
   color: #006ed7;
 }
-
 </style>

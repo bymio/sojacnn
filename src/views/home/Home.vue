@@ -1,12 +1,13 @@
 <template>
   <div id="home">
+      
     <banner></banner>
-
+    <router-view></router-view>
     <notice></notice>
     <work-news></work-news>
     <college-news></college-news>
     <links></links>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -28,7 +29,6 @@ export default {
     WorkNews,
     CollegeNews,
     Links,
-
   },
   methods: {},
 };
@@ -41,9 +41,9 @@ export default {
   height: 2000px;
   /* background: yellowgreen; */
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 351.5px;
+  right: 351.5px;
   top: 181px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 </style>

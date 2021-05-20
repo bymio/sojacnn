@@ -1,5 +1,5 @@
 <template>
-  <div class="gsosp">
+  <div class="home-img-info">
     <current-location></current-location>
     <navigation></navigation>
     <corresponding-content></corresponding-content>
@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import CurrentLocation from 'views/gsosp/header/current-location/CurrentLocation.vue'
-import Navigation from 'views/gsosp/bottom/navigation/Navigation.vue'
-import CorrespondingContent from 'views/gsosp/bottom/correspondingcontent/CorrespondingContent.vue'
+import CurrentLocation from "views/home/home-img-info/header/current-location/CurrentLocation.vue";
+import Navigation from "views/home/home-img-info/bottom/navigation/Navigation.vue";
+import CorrespondingContent from "views/home/home-img-info/bottom/correspondingcontent/CorrespondingContent.vue";
 export default {
   data() {
     return {
@@ -25,9 +25,8 @@ export default {
 };
 </script>
 
-
-<style>
-.gsosp {
+<style scoped>
+.home-img-info {
   width: 1200px;
   min-width: 1200px;
   height: 2000px;
