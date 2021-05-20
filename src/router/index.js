@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const Login = () => import('../components/common/login/Login.vue')
 const Home = () => import('../views/home/Home')
 const HomeImgInfo = () => import('../views/home/home-img-info/HomeImgInfo.vue')
 const Circulars = () => import('../views/home/circulars/substance/Substance.vue')
@@ -16,7 +17,7 @@ const Contact = () => import('../views/contact/Contact.vue')
 
 
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push (location) {
+VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
@@ -26,7 +27,11 @@ Vue.use(VueRouter)
 // 2.创建router
 const routes = [{
     path: '',
-    redirect: '/home'
+    redirect: '/login'
+  },
+  {
+    path: '/login',
+    component:Login,
   },
   {
     path: '/home',

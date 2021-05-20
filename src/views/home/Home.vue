@@ -1,12 +1,14 @@
 <template>
   <div id="home">
-      
-    <banner></banner>
-    <router-view></router-view>
-    <notice></notice>
-    <work-news></work-news>
-    <college-news></college-news>
-    <links></links>
+    <main-tab-bar></main-tab-bar>
+    <div class="home">
+      <banner></banner>
+      <router-view></router-view>
+      <notice></notice>
+      <work-news></work-news>
+      <college-news></college-news>
+      <links></links>
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import Notice from "views/home/header/notice/Notice.vue";
 import WorkNews from "views/home/bottom/work-news/WorkNews.vue";
 import CollegeNews from "views/home/bottom/college-news/CollegeNews.vue";
 import Links from "views/home/bottom/links/Links.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 
 export default {
   data() {
@@ -29,13 +32,14 @@ export default {
     WorkNews,
     CollegeNews,
     Links,
+    MainTabBar,
   },
   methods: {},
 };
 </script>
 
 <style>
-#home {
+.home {
   width: 1200px;
   min-width: 1200px;
   height: 2000px;
