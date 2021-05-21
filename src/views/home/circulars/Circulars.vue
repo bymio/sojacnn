@@ -1,11 +1,17 @@
 <template>
+<div>
+    <main-tab-bar></main-tab-bar>
+
   <div class="circulars">
     <sunstance></sunstance>
   </div>
+</div>
 </template>
 
 <script>
 import Substance from 'views/home/circulars/substance/Substance.vue'
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -15,6 +21,7 @@ export default {
   methods: {},
   components:{
     Substance,
+    MainTabBar
   }
 };
 </script>

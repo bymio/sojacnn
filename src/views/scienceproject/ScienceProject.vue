@@ -1,18 +1,23 @@
 <template>
-  <div class="scienceproject">
-    <current-location></current-location>
-    <forms></forms>
+  <div>
+    <main-tab-bar></main-tab-bar> 
+    <div class="scienceproject">
+      <current-location></current-location>
+      <forms></forms>
+    </div>
   </div>
 </template>
 
 <script>
 import CurrentLocation from "views/scienceproject/header/current-location/CurrentLocation.vue";
 import Forms from "views/scienceproject/bottom/forms/Forms.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 export default {
   name: "Profile",
   components: {
     CurrentLocation,
     Forms,
+    MainTabBar,
   },
 };
 </script>

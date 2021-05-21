@@ -1,6 +1,6 @@
 <template>
-  <div class="work">
-    <sunstance></sunstance>
+  <div>
+    <div class="work"><sunstance></sunstance></div>
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
   methods: {},
   components: {
     Substance,
+    MainTabBar,
   },
 };
 </script>

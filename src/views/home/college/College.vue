@@ -1,11 +1,16 @@
 <template>
-  <div class="college">
-    <sunstance></sunstance>
+  <div>
+    <main-tab-bar></main-tab-bar>
+
+    <div class="college">
+      <sunstance></sunstance>
+    </div>
   </div>
 </template>
 
 <script>
 import Substance from "views/home/college/substance/Substance.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 
 export default {
   data() {
@@ -16,6 +21,7 @@ export default {
   methods: {},
   components: {
     Substance,
+    MainTabBar,
   },
 };
 </script>

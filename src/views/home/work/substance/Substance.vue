@@ -1,5 +1,9 @@
 <template>
+<div>
+    <main-tab-bar></main-tab-bar>
+
   <div class="substance">
+
     <div class="substance-header">
       <div class="substance-header-title">
         <h2>工作动态</h2>
@@ -74,9 +78,12 @@
       </ul>
     </div>
   </div>
+</div>
 </template>
 
 <script>
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -84,6 +91,9 @@ export default {
     };
   },
   methods: {},
+  components:{
+    MainTabBar,
+  }
 };
 </script>
 

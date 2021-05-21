@@ -1,8 +1,11 @@
 <template>
-  <div class="policy">
-    <current-location></current-location>
-    <navigation></navigation>
-    <corresponding-content></corresponding-content>
+  <div>
+    <main-tab-bar></main-tab-bar>
+    <div class="policy">
+      <current-location></current-location>
+      <navigation></navigation>
+      <corresponding-content></corresponding-content>
+    </div>
   </div>
 </template>
 
@@ -10,6 +13,8 @@
 import CurrentLocation from "views/policy/header/current-location/CurrentLocation.vue";
 import Navigation from "views/policy/bottom/navigation/Navigation.vue";
 import CorrespondingContent from "views/policy/bottom/correspondingcontent/CorrespondingContent.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -21,6 +26,7 @@ export default {
     CurrentLocation,
     Navigation,
     CorrespondingContent,
+    MainTabBar,
   },
 };
 </script>
@@ -35,6 +41,5 @@ export default {
   left: 351.5px;
   right: 351.5px;
   top: 181px;
-
 }
 </style>

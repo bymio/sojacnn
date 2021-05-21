@@ -1,15 +1,21 @@
 <template>
-  <div class="gsosp">
-    <current-location></current-location>
-    <navigation></navigation>
-    <corresponding-content></corresponding-content>
+  <div>
+    <main-tab-bar></main-tab-bar>
+
+    <div class="gsosp">
+      <current-location></current-location>
+      <navigation></navigation>
+      <corresponding-content></corresponding-content>
+    </div>
   </div>
 </template>
 
 <script>
-import CurrentLocation from 'views/gsosp/header/current-location/CurrentLocation.vue'
-import Navigation from 'views/gsosp/bottom/navigation/Navigation.vue'
-import CorrespondingContent from 'views/gsosp/bottom/correspondingcontent/CorrespondingContent.vue'
+import CurrentLocation from "views/gsosp/header/current-location/CurrentLocation.vue";
+import Navigation from "views/gsosp/bottom/navigation/Navigation.vue";
+import CorrespondingContent from "views/gsosp/bottom/correspondingcontent/CorrespondingContent.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -21,6 +27,7 @@ export default {
     CurrentLocation,
     Navigation,
     CorrespondingContent,
+    MainTabBar,
   },
 };
 </script>

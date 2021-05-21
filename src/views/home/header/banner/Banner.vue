@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style scoped >
+<style lang="less"  scoped >
 .banner {
   width: 600px;
   height: 360px;
@@ -45,10 +45,11 @@ export default {
   top: 20px;
   left: 0px;
 }
-.el-carousel__container {
-  position: relative;
+ /deep/.el-carousel__container {
+  /* position: relative; */
   overflow: hidden;
-}
+  height: 360px;
+ }
 .el-carousel__item img {
   /* color: #475669; */
   width: 600px;

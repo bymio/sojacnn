@@ -1,11 +1,17 @@
 <template>
-  <div class="business-guide">
-    <current-location></current-location>
+  <div>
+    <main-tab-bar></main-tab-bar>
+
+    <div class="business-guide">
+      <current-location></current-location>
+    </div>
   </div>
 </template>
 
 <script>
 import CurrentLocation from "views/business-guide/header/current-location/CurrentLocation.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -15,6 +21,7 @@ export default {
   methods: {},
   components: {
     CurrentLocation,
+    MainTabBar,
   },
 };
 </script>
@@ -29,6 +36,5 @@ export default {
   left: 351.5px;
   right: 351.5px;
   top: 181px;
-
 }
 </style>

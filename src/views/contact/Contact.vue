@@ -1,13 +1,18 @@
 <template>
-  <div class="contact">
-    <current-location></current-location>
-    <forms></forms>
+  <div >
+    <main-tab-bar></main-tab-bar>
+    <div class="contact">
+      <current-location></current-location>
+      <forms></forms>
+    </div>
   </div>
 </template>
 
 <script>
 import CurrentLocation from "views/contact/header/current-location/CurrentLocation.vue";
 import Forms from "views/contact/bottom/forms/Forms.vue";
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
 export default {
   data() {
     return {
@@ -18,6 +23,7 @@ export default {
   components: {
     CurrentLocation,
     Forms,
+    MainTabBar,
   },
 };
 </script>
@@ -32,6 +38,5 @@ export default {
   right: 351.5px;
   top: 181px;
   text-align: center;
-
 }
 </style>
