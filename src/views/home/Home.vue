@@ -1,6 +1,7 @@
 <template>
   <div id="home">
-    <main-tab-bar></main-tab-bar>
+    <main-tab-bar :navInfo="res">
+    </main-tab-bar>
     <div class="home">
       <banner></banner>
       <router-view></router-view>
@@ -13,6 +14,9 @@
 </template>
 
 <script>
+// import { findContype } from "@/api/index";
+// import { saveNewsContype } from "@/api/index";
+
 import Banner from "views/home/header/banner/Banner.vue";
 import Notice from "views/home/header/notice/Notice.vue";
 import WorkNews from "views/home/bottom/work-news/WorkNews.vue";
@@ -23,7 +27,7 @@ import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 export default {
   data() {
     return {
-      msg: "",
+      res:{},
     };
   },
   components: {
@@ -34,7 +38,20 @@ export default {
     Links,
     MainTabBar,
   },
-  methods: {},
+  methods: {
+
+    // async saveNewsContype(name) {
+    //   let data = {
+    //     contypeName: name,
+    //   };
+    //   var result;
+    //   result = await saveNewsContype(data);
+    //   console.log(result);
+    // },
+  },
+  mounted() {
+    // this.saveNewsContype("333");
+  },
 };
 </script>
 

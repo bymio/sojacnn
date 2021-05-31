@@ -2,29 +2,25 @@
   <div>
     <header-bar></header-bar>
     <nav-bar></nav-bar>
-
   </div>
 </template>
 
 <script>
-import HeaderBar from 'components/common/headerbar/HeaderBar.vue'
-import NavBar from 'components/common/navbar/NavBar.vue'
+import HeaderBar from "components/common/headerbar/HeaderBar.vue";
+import NavBar from "components/common/navbar/NavBar.vue";
 export default {
-  data () {
+  data() {
     return {
-      msg: ''
-    }
+      msg: "",
+    };
   },
-  methods: {
-
-  },
-  components:{
+  methods: {},
+  components: {
     HeaderBar,
-    NavBar
-  }
-}
+    NavBar,
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

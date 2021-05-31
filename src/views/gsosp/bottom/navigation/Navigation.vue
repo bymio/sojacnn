@@ -28,18 +28,6 @@
             <i class="el-icon-menu"></i>
             <span slot="title">专职人员</span>
           </el-menu-item>
-          <el-menu-item index="6">
-            <span slot="title"></span>
-          </el-menu-item>
-          <el-menu-item index="7">
-            <span slot="title"></span>
-          </el-menu-item>
-          <el-menu-item index="8">
-            <span slot="title"></span>
-          </el-menu-item>
-          <el-menu-item index="9">
-          </el-menu-item>
-
         </el-menu>
       </el-col>
     </el-row>
@@ -58,6 +46,8 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+
+
   },
 };
 </script>

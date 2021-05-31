@@ -26,8 +26,8 @@ export default {
 .content1 {
   width: 1000px;
   height: 800px;
-  position: relative;
-  top: -485px;
+  position: absolute;
+  top: 70px;
   left: 200px;
 }
 .text {

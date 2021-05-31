@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>动态添加和删除标签</h1>
+  <div id="addTagTest">
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>年薪</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="info">
+
+      </tbody>
+    </table>
+    姓名：<input type="text" name="userName" id="userName" value="" /><br>
+    年薪<input type="text" name="money" id="money" value="" /><br>
+    <button id="add" onclick="addTag()">添加记录</button>
+  </div>
+
+  <script>
+    var list = [];//声明一个集合
+    function addTag() {
+      var userName = document.getElementById("userName").value;
+      var money = document.getElementById("money").value;
+      var obj = new Object();
+      obj.name = userName;
+      obj.money = money;
+      list.push(obj);   //对象放入集合
+      var info = document.getElementById("info");
+      var inner = "";
+      //动态添加元素
+      for (i = 0; i < list.length; i++) {
+        inner += "<tr>";
+        inner += '<td align=\"center\">' + list[i].name + '</td><td align=\"center\">' + list[i].money +
+          '</td><td align=\"center\"><a name=\"' + i + '\" onclick=\"functiondel(this)\">' + "删除" + '</a></td>';
+        inner += "</tr>";
+      }
+      info.innerHTML = inner;
+    }
+    //删除方法
+    function functiondel(o) {
+      var stack = [];//声明一个临时栈
+      var index = o.name;
+      for (k = list.length - 1; k >= 0; k--) {
+        if (k > index) {
+          stack.push(list[k]);
+          list.pop();
+        }
+        else {
+          list.pop();
+          break;
+        }
+      }
+      for (m = stack.length - 1; m >= 0; m--) {
+        list.push(stack[m]);
+      }
+      var info = document.getElementById("info");
+      var inner = "";
+      for (i = 0; i < list.length; i++) {
+        inner += "<tr>";
+        inner += '<td align=\"center\">' + list[i].name + '</td><td align=\"center\">' + list[i].money +
+          '</td><td align=\"center\"><a name=\"' + i + '\" onclick=\"functiondel(this)\">' + "删除" + '</a></td>';
+        inner += "</tr>";
+      }
+      info.innerHTML = inner;
+    }
+  </script>
+</body>
+
+</html>

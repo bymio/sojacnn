@@ -14,9 +14,11 @@ const AcademicExchange = () => import('../views/academic-exchange/AcademicExchan
 const BusinessGuide = () => import('../views/business-guide/BusinessGuide.vue')
 const PopularScience = () => import('../views/popularscience/PopularScience.vue')
 const Contact = () => import('../views/contact/Contact.vue')
+const Administrators = () => import('../components/common/administrators/Administrators.vue')
 
 
 const originalPush = VueRouter.prototype.push
+
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
@@ -31,7 +33,11 @@ const routes = [{
   },
   {
     path: '/login',
-    component:Login,
+    component: Login,
+  },
+  {
+    path: '/administrators',
+    component: Administrators,
   },
   {
     path: '/home',
@@ -92,7 +98,6 @@ const routes = [{
 ]
 const router = new VueRouter({
   routes,
-  mode: 'history'
 })
 
 

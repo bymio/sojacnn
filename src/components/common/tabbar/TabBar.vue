@@ -11,7 +11,8 @@ export default {
 </script>
  
 <style scoped>
-@media only screen and (min-width: 415px) and (max-width: 90000px) {
+/* @media only screen and (min-width: 415px) and (max-width: 90000px) {
+} */
   #tab-bar {
     color: white;
     cursor: pointer;
@@ -23,5 +24,4 @@ export default {
     background: #1675e2;
     margin: 0 auto;
   }
-}
 </style>

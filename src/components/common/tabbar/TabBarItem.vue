@@ -1,7 +1,10 @@
 <template>
   <!--所有的item都展示同一个图片, 同一个文字-->
   <div class="tabbar-grop">
-    <div class="tab-bar-item-grop" @click="itemClick">
+    <div
+      class="tab-bar-item-grop"
+      @click="itemClick"
+    >
       <div class="tab-bar-item" :style="activeStyle">
         <slot name="item-text"></slot>
       </div>
@@ -40,6 +43,12 @@ export default {
   },
   methods: {
     itemClick() {
+      // var res = document.getElementsByClassName("tab-bar-item-grop");
+      // for (this.index in res) {
+      //   if (Object.hasOwnProperty.call(res, this.index)) {
+      //     console.log(this.index);
+      //   }
+      // }
       this.$router.replace(this.path);
     },
   },
@@ -59,5 +68,4 @@ export default {
   line-height: 61px;
   font-size: 16px;
 }
-
 </style>

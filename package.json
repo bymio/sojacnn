@@ -7,7 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
+    "@tinymce/tinymce-vue": "^3.0.1",
     "better-scroll": "^1.13.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.1",
@@ -15,6 +16,7 @@
     "marked": "^2.0.3",
     "mavon-editor": "^2.9.1",
     "vue": "^2.6.11",
+    "tinymce": "^5.0.16",
     "vue-router": "^3.0.2"
   },
   "devDependencies": {

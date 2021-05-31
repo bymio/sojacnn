@@ -1,25 +1,33 @@
 <template>
   <div>
-    <navigation-bar></navigation-bar>
-
+    <navigation-bar :navinfo="navmsg"></navigation-bar>
   </div>
 </template>
 
 <script>
-import NavigationBar from 'components/common/navigation/NavigationBar.vue'
+import { findContype } from "@/api/index";
+import NavigationBar from "components/common/navigation/NavigationBar.vue";
 export default {
   data() {
     return {
-      msg: "",
+      navmsg: {},
     };
   },
   components: {
-    NavigationBar
+    NavigationBar,
   },
-  methods: {},
+  methods: {
+    async handleFindContype() {
+      let result = await findContype();
+      this.navmsg = result;
+      // console.log(this.navmsg);
+    },
+  },
+  mounted() {
+    this.handleFindContype();
+  },
 };
 </script>
 
 <style>
-
 </style>
