@@ -58,7 +58,7 @@ export default {
   methods: {
     async findCategoryByContypeId(event,Id) {
       const navJson = this.navinfo;
-      console.log(event.target.innerHTML);
+      console.log(event.target.value);
       
       // this.index = event.target.value;
       console.log(navJson);

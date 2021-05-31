@@ -26,9 +26,9 @@ export default {
 .content {
   width: 1000px;
   height: 800px;
-  position: relative;
-  top: -260px;
-  left: 250px;
+ position: absolute;
+  top: 70px;
+  left: 200px;
 }
 .text {
   font-size: 14px;
