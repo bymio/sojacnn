@@ -10,7 +10,7 @@ import NavigationBar from "components/common/navigation/NavigationBar.vue";
 export default {
   data() {
     return {
-      navmsg: {},
+      navmsg: [],
     };
   },
   components: {
@@ -19,7 +19,7 @@ export default {
   methods: {
     async handleFindContype() {
       let result = await findContype();
-      this.navmsg = result;
+      this.navmsg = result.data.data.item;
       // console.log(this.navmsg);
     },
   },
