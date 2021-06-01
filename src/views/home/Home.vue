@@ -39,7 +39,7 @@ export default {
     MainTabBar,
   },
   methods: {
-
+    //注释
     // async saveNewsContype(name) {
     //   let data = {
     //     contypeName: name,
