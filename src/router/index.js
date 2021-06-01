@@ -17,10 +17,27 @@ const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
 
 
-const originalPush = VueRouter.prototype.push
+// const originalPush = VueRouter.prototype.push
 
+// VueRouter.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
+const routerPush = VueRouter.prototype.push  
+// 重写push函数
 VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
+ 
+  // 这个if语句在跳转相同路径的时候，在路径末尾添加新参数（一些随机数字）
+  // 用来触发watch
+  if(typeof(location)=="string"){
+    var Separator = "&";
+    if(location.indexOf('?')==-1) { Separator='?'; }
+    location = location + Separator + "random=" + Math.random();
+  }
+ 
+  // 这个语句用来解决报错
+  // 调用原来的push函数，并捕获异常
+  return routerPush.call(this, location).catch(error => error)
+
 }
 
 // 1.安装插件

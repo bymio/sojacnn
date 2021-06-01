@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navigation-bar :navinfo="navmsg"></navigation-bar>
+    <navigation-bar></navigation-bar>
   </div>
 </template>
 

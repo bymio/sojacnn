@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content1">
     <el-card class="box-card">
       <!-- <div v-for="o in 4" :key="o" class="text item">
         <h2>列表内容</h2>
@@ -23,10 +23,10 @@ export default {
 </script>
 
 <style>
-.content {
+.content1 {
   width: 1000px;
   height: 800px;
- position: absolute;
+  position: absolute;
   top: 70px;
   left: 200px;
 }

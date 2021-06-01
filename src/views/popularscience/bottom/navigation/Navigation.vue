@@ -5,27 +5,11 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          @open="handleOpen"
-          @close="handleClose"
         >
-          <el-menu-item index="1">
+          <el-menu-item v-for="items in menuList" :key="items.id" index="1">
             <i class="el-icon-menu"></i>
-            <span slot="title">平顶山学院科普活动</span>
+            <span slot="title">{{items.categoryName}}</span>
           </el-menu-item>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">平顶山市政协科普活动</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-menu"></i>
-            <span slot="title">。。。。。。</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-          </el-menu-item>
-          <el-menu-item index="5">
-          </el-menu-item>
-
-
         </el-menu>
       </el-col>
     </el-row>
@@ -33,17 +17,23 @@
 </template>
 
 <script>
+import { findCategoryByContypeId } from "@/api/index";
+
 export default {
   data() {
-    return {};
+    return {
+      menuList: [],
+    };
+  },
+  mounted() {
+    this.initMenu();
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    async initMenu() {
+      let result = await findCategoryByContypeId({contypeId:7});
+      this.menuList = [...result.data.data.items];
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
+
   },
 };
 </script> 

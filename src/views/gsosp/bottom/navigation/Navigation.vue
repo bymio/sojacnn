@@ -5,8 +5,6 @@
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
-          @open="handleOpen"
-          @close="handleClose"
         >
           <el-menu-item v-for="item in MenuList" :key="item.id">
             <i class="el-icon-menu"></i>
@@ -33,13 +31,7 @@ export default {
     async initMenu() {
       let result = await findCategoryByContypeId({ contypeId: 2 });
       this.MenuList = [...result.data.data.items];
-      console.log(this.MenuList);
-    },
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(this.MenuList);
     },
   },
 };

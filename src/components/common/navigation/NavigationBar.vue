@@ -1,6 +1,6 @@
 <template>
 <!--  -->
-  <div  @click="findCategoryByContypeId($event,index)"  class="navigation">
+  <div class="navigation">
     <tab-bar >
       <tab-bar-item path="/home">
         <div class="title" value='1' slot="item-text">本站首页</div>
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { findCategoryByContypeId } from "@/api/index";
 
 import TabBar from "components/common/tabbar/TabBar";
 import ContactInformationBar from "components/common/contact-information/ContactInformationBar";
@@ -49,33 +48,9 @@ export default {
       index: 2,
     };
   },
-  props: {
-    navinfo: {
-      type: Object,
-    },
-  },
   mounted() {},
   methods: {
-    async findCategoryByContypeId(event,Id) {
-      const navJson = this.navinfo;
-      console.log(event.target.value);
-      
-      // this.index = event.target.value;
-      console.log(navJson);
-      for (let i = 0; i < navJson.length; i++) {
-      }
-      let data = {
-        contypeId: Id,
-      };
-      var result;
-      result = await findCategoryByContypeId(data);
-      // console.log(result);
-    },
-    itemClick(event){
-      event.target.value=0;
-      console.log(event.target);
-      
-    }
+    
   },
 
   components: {
