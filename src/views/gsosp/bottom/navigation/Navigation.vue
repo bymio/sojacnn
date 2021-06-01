@@ -8,25 +8,9 @@
           @open="handleOpen"
           @close="handleClose"
         >
-          <el-menu-item index="1">
+          <el-menu-item v-for="item in MenuList" :key="item.id">
             <i class="el-icon-menu"></i>
-            <span slot="title">简介</span>
-          </el-menu-item>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">章程</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-menu"></i>
-            <span slot="title">组织机构</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-menu"></i>
-            <span slot="title">工作职责</span>
-          </el-menu-item>
-          <el-menu-item index="5">
-            <i class="el-icon-menu"></i>
-            <span slot="title">专职人员</span>
+            <span slot="title">{{ item.categoryName }}</span>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -35,19 +19,28 @@
 </template>
 
 <script>
+import { findCategoryByContypeId } from "@/api/index";
 export default {
   data() {
-    return {};
+    return {
+      MenuList: [],
+    };
+  },
+  mounted() {
+    this.initMenu();
   },
   methods: {
+    async initMenu() {
+      let result = await findCategoryByContypeId({ contypeId: 2 });
+      this.MenuList = [...result.data.data.items];
+      console.log(this.MenuList);
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-
-
   },
 };
 </script>
