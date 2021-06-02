@@ -58,12 +58,12 @@ export default {
 <style>
 .home {
   width: 1200px;
+  /* width: 60%; */
   min-width: 1200px;
   height: 2000px;
   /* background: yellowgreen; */
   position: absolute;
-  left: 351.5px;
-  right: 351.5px;
+  left: 18.5%;
   top: 181px;
   /* margin: 0 auto; */
 }

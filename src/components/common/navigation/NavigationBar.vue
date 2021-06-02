@@ -64,7 +64,9 @@ export default {
 <style scoped>
 .navigation {
   position: absolute;
-  width: 1903px;
+  /* width: 1903px; */
+  width: 100%;
+
   height: 61px;
   background: #1675e2;
 }
