@@ -50,14 +50,19 @@
     color: white;
     font-size: 18px;
     margin-top: 20px;
+    margin-right: 4px
+    ;
 }
 .login-box .input-box .input-text input{
-    border: 0;
-    padding: 6px;
-    border-bottom: 1px solid white;
-    background-color: #ffffff00;
-    color: #fff;
-    margin-top: 20px;
+  outline: none;
+  border: none;
+  padding: 6px;
+  border-bottom: 1px solid white;
+  background-color: #ffffff00;
+  margin-top: 20px;
+}
+.login-box .input-box .input-text input::-webkit-input-placeholder{
+  color:rgb(49, 12, 12)
 }
 .login-box .input-box .input-btn{
     display: flex;

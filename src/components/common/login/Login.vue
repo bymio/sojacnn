@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       msg: "",
-      path: "/home",
+      path: "/administrators",
     };
   },
   mounted() {
@@ -38,13 +38,14 @@ export default {
         password: "pyb***20000112",
         remember: 0,
       };
-      var result;
-      if (user == data.account && password == data.password) {
-        result = await login(data);
+      if (user === data.account && password === data.password) {
+        const result = await login(data);
+        if(result.data.code !== 200)return this.$message.error('用户名或密码输入错误')
+        this.$message.success('登录成功')
         this.$router.push(this.path);
         console.log(result);
       } else {
-        alert("账号或者密码错误");
+        this.$message.error('用户名或密码输入错误')
       }
     },
 
