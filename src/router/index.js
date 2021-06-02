@@ -15,6 +15,7 @@ const BusinessGuide = () => import('../views/business-guide/BusinessGuide.vue')
 const PopularScience = () => import('../views/popularscience/PopularScience.vue')
 const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
+const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
 
 
 // const originalPush = VueRouter.prototype.push
@@ -55,6 +56,10 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
+    children:[{
+      path:'/list',
+      component:newsList 
+    }]
   },
   {
     path: '/home',
