@@ -2,6 +2,7 @@ import request from '@/utils/request'
 
 
 
+//登录相关
 export const login = (data) => {
   let param = new URLSearchParams();
   param.append("account", data.account);
@@ -27,6 +28,7 @@ export const login = (data) => {
 //   })
 // };
 
+//对接所有导航条
 export const findContype = () => {
   return request({
     method: "GET",
@@ -36,6 +38,7 @@ export const findContype = () => {
   })
 };
 
+//点击对应的导航条弹出对应内容
 export const findCategoryByContypeId = (data) => {
   let param = new URLSearchParams();
   param.append("contypeId", data.contypeId);
@@ -43,6 +46,20 @@ export const findCategoryByContypeId = (data) => {
     method: "GET",
     url: "/api/newsFeature/findCategoryByContypeId",
     params: param,
+  })
+};
+
+//根据类型类别查询一类新闻
+export const findNewsByTypeAndCategory = (data) => {
+  let param = new URLSearchParams();
+  param.append("categoryId", data.categoryId);
+  param.append("contypeId", data.contypeId);
+  param.append("p", data.p);
+  return request({
+    method: "POST",
+    url: "/api/newsFeature/findNewsByTypeAndCategory",
+    // data用来设置POST请求体
+    data: param,
   })
 };
 

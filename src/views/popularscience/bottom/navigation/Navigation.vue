@@ -32,6 +32,7 @@ export default {
     async initMenu() {
       let result = await findCategoryByContypeId({contypeId:7});
       this.menuList = [...result.data.data.items];
+      console.log(this.menuList);
     },
 
   },
