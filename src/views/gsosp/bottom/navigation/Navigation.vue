@@ -5,6 +5,8 @@
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
+          text-color="#fff"
+          active-text-color="#409EFF"
         >
           <el-menu-item v-for="item in MenuList" :key="item.id">
             <i class="el-icon-menu"></i>
