@@ -1,7 +1,6 @@
 <template>
   <div id="home">
-    <main-tab-bar :navInfo="res">
-    </main-tab-bar>
+    <main-tab-bar :navInfo="res"> </main-tab-bar>
     <div class="home">
       <banner></banner>
       <router-view></router-view>
@@ -27,7 +26,7 @@ import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 export default {
   data() {
     return {
-      res:{},
+      res: {},
     };
   },
   components: {
@@ -58,13 +57,12 @@ export default {
 <style>
 .home {
   width: 1200px;
-  /* width: 60%; */
   min-width: 1200px;
   height: 2000px;
-  /* background: yellowgreen; */
   position: absolute;
-  left: 18.5%;
+  left: 0;
+  right: 0;
   top: 181px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 </style>
