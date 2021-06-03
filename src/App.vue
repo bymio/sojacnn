@@ -22,7 +22,7 @@ export default {
   },
   components: {
     MainTabBar,
-    HelloWorld,
+    // HelloWorld,
   },
 };
 </script>

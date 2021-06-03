@@ -56,10 +56,10 @@ export const findNewsByTypeAndCategory = (data) => {
   param.append("contypeId", data.contypeId);
   param.append("p", data.p);
   return request({
-    method: "POST",
+    method: "GET",
     url: "/api/newsFeature/findNewsByTypeAndCategory",
     // data用来设置POST请求体
-    data: param,
+    params: param,
   })
 };
 

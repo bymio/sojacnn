@@ -15,7 +15,14 @@ const BusinessGuide = () => import('../views/business-guide/BusinessGuide.vue')
 const PopularScience = () => import('../views/popularscience/PopularScience.vue')
 const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
+
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
+
+const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
+const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
+
+const poNavigation = () => import('../views/policy/correspondingcontent/1.vue')
+const poNavigation2 = () => import('../views/policy/correspondingcontent/2.vue')
 
 
 // const originalPush = VueRouter.prototype.push
@@ -23,18 +30,20 @@ const newsList = () => import('../components/common/administrators/adminList/new
 // VueRouter.prototype.push = function push(location) {
 //   return originalPush.call(this, location).catch(err => err)
 // }
-const routerPush = VueRouter.prototype.push  
+const routerPush = VueRouter.prototype.push
 // 重写push函数
 VueRouter.prototype.push = function push(location) {
- 
+
   // 这个if语句在跳转相同路径的时候，在路径末尾添加新参数（一些随机数字）
   // 用来触发watch
-  if(typeof(location)=="string"){
+  if (typeof (location) == "string") {
     var Separator = "&";
-    if(location.indexOf('?')==-1) { Separator='?'; }
+    if (location.indexOf('?') == -1) {
+      Separator = '?';
+    }
     location = location + Separator + "random=" + Math.random();
   }
- 
+
   // 这个语句用来解决报错
   // 调用原来的push函数，并捕获异常
   return routerPush.call(this, location).catch(error => error)
@@ -45,9 +54,10 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 // 2.创建router
-const routes = [{
+const routes = [
+  {
     path: '',
-    redirect: '/login'
+    redirect: '/home'
   },
   {
     path: '/login',
@@ -56,9 +66,9 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
-    children:[{
-      path:'/list',
-      component:newsList 
+    children: [{
+      path: '/list',
+      component: newsList
     }]
   },
   {
@@ -91,11 +101,39 @@ const routes = [{
   },
   {
     path: '/policy',
-    component: Policy
+    component: Policy,
+    children: [
+      {
+        path: '',
+        redirect: '/po1'
+      },
+      {
+        path: '/po1',
+        component: poNavigation
+      },
+      {
+        path: '/po2',
+        component: poNavigation2,
+      }
+    ]
   },
   {
     path: '/gsosp',
-    component: GsoSP
+    component: GsoSP,
+    children: [
+      {
+        path: '',
+        redirect: '/index1'
+      },
+      {
+        path: '/index1',
+        component: gsNavigation
+      },
+      {
+        path: '/index2',
+        component: gsNavigation2,
+      }
+    ]
   },
   {
     path: '/scienceproject',
