@@ -22,34 +22,20 @@
           :collapse-transition = 'false'
           :collapse = 'isCollapse'
           :router = 'true'>
-          <!-- 一级菜单 -->
-          <el-submenu index="1">
-            <!-- 一级菜单模板区域 -->
-            <template slot="title">
-              <!-- 一级图标 -->
-              <i class="el-icon-menu"></i>
-              <!-- 一级文本 -->
-              <span>导航一</span>
-            </template>
 
-            <el-menu-item>
-              <template slot="title">
-                <!-- 二级图标 -->
-                <i class=""></i>
-                <!-- 二级文本 -->
-                <span></span>
-              </template>
-            </el-menu-item>
-          </el-submenu>
+          <el-menu-item index="/index1">
+            <i class="el-icon-menu"></i>
+            <span slot="title">角色管理</span>
+          </el-menu-item>
 
-           <el-menu-item index="/index2">
-              <i class="el-icon-menu"></i>
-              <span slot="title">导航二</span>
-            </el-menu-item>
-            <el-menu-item index="/index3">
-              <i class="el-icon-document"></i>
-              <span slot="title">导航三</span>
-            </el-menu-item>
+          <el-menu-item index="/index2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">导航二</span>
+          </el-menu-item>
+          <el-menu-item index="/index3">
+            <i class="el-icon-document"></i>
+            <span slot="title">导航三</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <!-- 右侧主体区域 -->

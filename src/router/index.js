@@ -16,6 +16,8 @@ const PopularScience = () => import('../views/popularscience/PopularScience.vue'
 const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
+const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
+const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
 
 
 // const originalPush = VueRouter.prototype.push
@@ -56,10 +58,24 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
-    children:[{
-      path:'/index2',
-      component:newsList 
-    }]
+    children:[
+      {
+        path:'',
+        redirect:'/index1' 
+      },
+      {
+        path:'/index1',
+        component:newsList 
+      },
+      {
+        path:'/index2',
+        component:newsList2 
+      },
+      {
+        path:'/index3',
+        component:newsList3
+      }
+    ]
   },
   {
     path: '/home',

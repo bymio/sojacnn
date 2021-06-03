@@ -10,6 +10,7 @@ const request = axios.create({
 axios.interceptors.request.use(
   config => {
     console.log('request interceptor2 onResolved()')
+    config.headers.Authorization = window.sessionStorage.getItem('cookie')
     return config
   },
   error => {
