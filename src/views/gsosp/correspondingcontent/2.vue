@@ -44,7 +44,11 @@ export default {
 .item {
   padding: 18px 0;
 }
-
+.el-aside {
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
 .box-card {
   height: 580px;
   width: 880px;

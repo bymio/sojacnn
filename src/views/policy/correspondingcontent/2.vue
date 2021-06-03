@@ -1,41 +1,54 @@
 <template>
-  <div class="content2">
+  <div class="content3">
     <el-card class="box-card">
-      <!-- <div v-for="o in 4" :key="o" class="text item">
-        <h2>列表内容</h2>
-      </div> -->
-      <div>22222222222222</div>
+      <!-- categoryId: 1
+contypeId: 2
+coverPath: "1.png"
+createTime: "2021-06-02 20:06:38"
+dataString: "测试内容"
+id: 1400062803305308200
+title: "测试"
+updateTime: "2021-06-02 20:06:38" -->
+      <div>
+        {{ menuContent.title }}
+      </div>
     </el-card>
   </div>
 </template>
 
 <script>
-// import { findNewsByTypeAndCategory } from "@/api/index";
+import { findNewsByTypeAndCategory } from "@/api/index";
+
 export default {
   data() {
     return {
-      msg: "",
+      menuContent: {},
     };
   },
   mounted() {
-    // this.initMenu();
+    this.initMenuContent();
   },
   methods: {
-    // async initMenu() {
-    //   let result = findNewsByTypeAndCategory({ contypeId: 2, categoryId: 1, p: 1 });
-    //   console.log(result);
-    // },
+    async initMenuContent() {
+      let result = await findNewsByTypeAndCategory({
+        contypeId: 3,
+        categoryId: 7,
+        p: 1,
+      });
+      // this.menuContent = [...result.data.data.item];
+      console.log(result);
+      this.menuContent = result.data.data.item;
+      console.log(this.menuContent);
+    },
   },
 };
 </script>
 
 <style>
-.content2 {
-  /* width: 1000px;
-  height: 800px;
-  position: absolute;
-  top: 70px;
-  left: 200px; */
+.el-aside {
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 .text {
   font-size: 14px;
@@ -44,7 +57,9 @@ export default {
 .item {
   padding: 18px 0;
 }
-
+.el-col-12 {
+  width: 100%;
+}
 .box-card {
   height: 580px;
   width: 880px;

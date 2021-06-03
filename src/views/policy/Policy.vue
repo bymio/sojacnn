@@ -2,9 +2,6 @@
   <div>
     <main-tab-bar></main-tab-bar>
     <div class="policy">
-      <!-- <current-location></current-location>
-      <navigation></navigation>
-      <corresponding-content></corresponding-content> -->
       <el-container>
         <el-header>
           <div class="current-location">
@@ -49,16 +46,11 @@
 
 <script>
 import { findCategoryByContypeId } from "@/api/index";
-
-// import CurrentLocation from "views/policy/header/current-location/CurrentLocation.vue";
-// import Navigation from "views/policy/bottom/navigation/Navigation.vue";
-// import CorrespondingContent from "views/policy/bottom/correspondingcontent/CorrespondingContent.vue";
 import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 
 export default {
   data() {
     return {
-      msg: "",
       MenuList: [],
     };
   },
@@ -72,14 +64,11 @@ export default {
       console.log(this.MenuList);
     },
     getPath(id) {
-      // if(id == 1){
-      //   this.$router.push("/gsnavigation")
-      // }
       switch (id) {
-        case 1:
+        case 6:
           this.$router.push("/po1");
           break;
-        case 2:
+        case 7:
           this.$router.push("/po2");
           break;
         // case 3:
@@ -98,9 +87,6 @@ export default {
     },
   },
   components: {
-    // CurrentLocation,
-    // Navigation,
-    // CorrespondingContent,
     MainTabBar,
   },
 };

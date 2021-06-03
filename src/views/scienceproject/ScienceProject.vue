@@ -29,8 +29,9 @@ export default {
   height: 2000px;
   /* background: yellowgreen; */
   position: absolute;
-  left: 351.5px;
-  right: 351.5px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   top: 181px;
   text-align: center;
 }

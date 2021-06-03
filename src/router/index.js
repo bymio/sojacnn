@@ -20,11 +20,17 @@ const newsList = () => import('../components/common/administrators/adminList/new
 const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
 const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
 
+//科普概况
 const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
 const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
 
+//政策法规
 const poNavigation = () => import('../views/policy/correspondingcontent/1.vue')
 const poNavigation2 = () => import('../views/policy/correspondingcontent/2.vue')
+
+//学术交流
+const acNavigation = () => import('../views/academic-exchange/correspondingcontent/1.vue')
+const acNavigation2 = () => import('../views/academic-exchange/correspondingcontent/2.vue')
 
 
 // const originalPush = VueRouter.prototype.push
@@ -140,7 +146,20 @@ const routes = [{
   },
   {
     path: '/academicexchange',
-    component: AcademicExchange
+    component: AcademicExchange,
+    children: [{
+      path: '',
+      redirect: '/ac1'
+    },
+    {
+      path: '/ac1',
+      component: acNavigation
+    },
+    {
+      path: '/ac2',
+      component: acNavigation2,
+    }
+  ]
   },
   {
     path: '/businessguide',
