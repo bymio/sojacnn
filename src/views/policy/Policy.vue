@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       msg: "",
-      MenuList:[],
+      MenuList: [],
     };
   },
   mounted() {

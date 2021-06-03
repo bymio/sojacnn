@@ -17,6 +17,8 @@ const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
 
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
+const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
+const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
 
 const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
 const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
@@ -54,8 +56,7 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 // 2.创建router
-const routes = [
-  {
+const routes = [{
     path: '',
     redirect: '/home'
   },
@@ -102,8 +103,7 @@ const routes = [
   {
     path: '/policy',
     component: Policy,
-    children: [
-      {
+    children: [{
         path: '',
         redirect: '/po1'
       },
@@ -120,8 +120,7 @@ const routes = [
   {
     path: '/gsosp',
     component: GsoSP,
-    children: [
-      {
+    children: [{
         path: '',
         redirect: '/index1'
       },
@@ -159,10 +158,15 @@ const routes = [
 const router = new VueRouter({
   routes,
 })
-
-
-
-
+// 路由导航守卫
+router.beforeEach((to, from, next) => {
+  // 如果去登录页面，放行
+  if (to.path === '/login') return next()
+  // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
+  const cookie = window.sessionStorage.getItem('cookie')
+  if (!cookie) return next('/login')
+  next()
+})
 
 
 export default router

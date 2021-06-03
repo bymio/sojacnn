@@ -1,47 +1,44 @@
 <template>
   <div>
-     {{ msg }}
-    <tinymce-editor ref="editor"
-      v-model="msg"
-      :disabled="disabled"
-      :base-url="baseUrl"
-      :language="language"
-      :skin="skin"
-      @onClick="onClick">
-    </tinymce-editor>
-    <button @click="clear">清空内容</button>
-    <button @click="disabled = true">禁用</button>
-    <button @click="disabled = false">启用</button>
+    <el-card>
+       <el-table :data="tableData" stripe style="width: 100%" :border = 'true'>
+        <el-table-column type='index' label="#"></el-table-column>
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+      </el-table>
+    </el-card>
+    
   </div>
 </template>
 
 <script>
-import TinymceEditor from '@/common/tinymce-editor/tinymce-editor'
 export default {
   name:'newsList',
   components:{
-    TinymceEditor
   },
   data(){
     return {
-      msg: 'Welcome to Use Tinymce Editor-liubing.me',
-      disabled: false,
-      baseUrl: process.env.NODE_ENV === 'production' ? '/vue-use-tinymce' : '',
-      language: 'zh_CN',
-      skin: 'oxide'
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }]
     }
   },
   methods: {
-    // 鼠标单击的事件
-    onClick (e, editor) {
-      console.log('Element clicked')
-      console.log(e)
-      console.log(editor)
-    },
-    // 清空内容
-    clear () {
-      this.$refs.editor.clear()
-    }
   }
 }
 </script>
