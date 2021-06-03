@@ -1,17 +1,20 @@
 <template>
   <div>
-     {{ msg }}
-    <tinymce-editor ref="editor"
-      v-model="msg"
-      :disabled="disabled"
-      :base-url="baseUrl"
-      :language="language"
-      :skin="skin"
-      @onClick="onClick">
-    </tinymce-editor>
-    <button @click="clear">清空内容</button>
-    <button @click="disabled = true">禁用</button>
-    <button @click="disabled = false">启用</button>
+    <el-card>
+       {{ msg }}
+      <tinymce-editor ref="editor"
+        v-model="msg"
+        :disabled="disabled"
+        :base-url="baseUrl"
+        :language="language"
+        :skin="skin"
+        @onClick="onClick">
+      </tinymce-editor>
+      <button @click="clear">清空内容</button>
+      <button @click="disabled = true">禁用</button>
+      <button @click="disabled = false">启用</button>
+    </el-card>
+    
   </div>
 </template>
 

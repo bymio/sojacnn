@@ -6,18 +6,7 @@ const request = axios.create({
   baseURL: "http://1.117.81.44/",
   withCredentials: true,
 });
-
-
-axios.interceptors.request.use(
-  config => {
-    console.log('request interceptor1 onResolved()')
-    return config
-  },
-  error => {
-    console.log('request interceptor1 onRejected()')
-    return Promise.reject(error);
-  }
-)
+// 添加请求拦截器
 axios.interceptors.request.use(
   config => {
     console.log('request interceptor2 onResolved()')
@@ -32,20 +21,11 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     console.log('response interceptor1 onResolved()')
+    console.log(response)
     return response
   },
   function (error) {
     console.log('response interceptor1 onRejected()')
-    return Promise.reject(error);
-  }
-)
-axios.interceptors.response.use(
-  response => {
-    console.log('response interceptor2 onResolved()')
-    return response
-  },
-  function (error) {
-    console.log('response interceptor2 onRejected()')
     return Promise.reject(error);
   }
 )

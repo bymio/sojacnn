@@ -6,7 +6,7 @@
       <div>
         <span>后台管理</span>
       </div>
-      <el-button type='info'>退出</el-button>
+      <el-button type='info' @click="loginOut">退出</el-button>
     </el-header>
     <el-container>
       <!-- 侧边栏 -->
@@ -42,11 +42,11 @@
             </el-menu-item>
           </el-submenu>
 
-           <el-menu-item index="/list">
+           <el-menu-item index="/index2">
               <i class="el-icon-menu"></i>
               <span slot="title">导航二</span>
             </el-menu-item>
-            <el-menu-item index="3" disabled>
+            <el-menu-item index="/index3">
               <i class="el-icon-document"></i>
               <span slot="title">导航三</span>
             </el-menu-item>
@@ -75,6 +75,11 @@ export default {
     toggleCollapse(){//点击按钮，进行展开与收缩
       this.isCollapse = !this.isCollapse
     },
+    loginOut(){//点击退出按钮退出登录
+      window.sessionStorage.clear()
+      this.$router.push('/login')
+      this.$message.info('已退出登录状态')
+    }
   }
 };
 </script>

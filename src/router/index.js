@@ -57,7 +57,7 @@ const routes = [{
     path: '/administrators',
     component: Administrators,
     children:[{
-      path:'/list',
+      path:'/index2',
       component:newsList 
     }]
   },
@@ -121,8 +121,15 @@ const routes = [{
 const router = new VueRouter({
   routes,
 })
-
-
+// 路由导航守卫
+router.beforeEach((to,from,next) => {
+  // 如果去登录页面，放行
+  if(to.path  === '/login')return next()
+  // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
+  const cookie = window.sessionStorage.getItem('cookie')
+  if(!cookie)return next('/login')
+  next()
+})
 
 
 
