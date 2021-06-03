@@ -3,7 +3,7 @@ import axios from "axios";
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 const request = axios.create({
-  baseURL: "http://1.117.81.44/",
+  baseURL: "/api",
   withCredentials: true,
 });
 // 添加请求拦截器
