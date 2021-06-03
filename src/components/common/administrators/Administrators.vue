@@ -23,16 +23,16 @@
           :collapse = 'isCollapse'
           :router = 'true'>
 
-          <el-menu-item index="/index1">
+          <el-menu-item index="/newsList">
             <i class="el-icon-menu"></i>
             <span slot="title">角色管理</span>
           </el-menu-item>
 
-          <el-menu-item index="/index2">
+          <el-menu-item index="/newsList2">
             <i class="el-icon-menu"></i>
             <span slot="title">导航二</span>
           </el-menu-item>
-          <el-menu-item index="/index3">
+          <el-menu-item index="/newsList3">
             <i class="el-icon-document"></i>
             <span slot="title">导航三</span>
           </el-menu-item>

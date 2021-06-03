@@ -73,10 +73,24 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
-    children: [{
-      path: '/list',
-      component: newsList
-    }]
+    children: [
+      {
+        path:'',
+        redirect:'/newsList'
+      },
+      {
+          path: '/newsList',
+          component: newsList
+      },
+      {
+          path: '/newsList2',
+          component: newsList2
+      },
+      {
+          path: '/newsList3',
+          component: newsList3
+      },
+    ]
   },
   {
     path: '/home',
