@@ -201,12 +201,11 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // 如果去登录页面，放行
   if(to.path === '/login'){
-    document.cookie = name+"=;expires="+(new Date(0)).toGMTString()+";path=/";
+    // document.cookie = name+"=;expires="+(new Date(0)).toGMTString()+";path=/";
     next()
   }else{
     // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
-    const cookie = document.cookie
-    if (!cookie) return next('/login')
+    if (!document.cookie)return next('/login')
     next()
   }
 })
