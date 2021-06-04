@@ -3,30 +3,25 @@ import axios from "axios";
 
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 const request = axios.create({
-  baseURL: "http://1.117.81.44/",
+  baseURL: "/api",
   withCredentials: true,
 });
 // 添加请求拦截器
-axios.interceptors.request.use(
-  config => {
-    console.log('request interceptor2 onResolved()')
-    config.headers.Authorization = window.sessionStorage.getItem('cookie')
+axios.interceptors.request.use(config => {
+    console.log(config)
     return config
   },
   error => {
-    console.log('request interceptor2 onRejected()')
     return Promise.reject(error);
   }
 )
 // 添加响应拦截器
 axios.interceptors.response.use(
   response => {
-    console.log('response interceptor1 onResolved()')
     console.log(response)
     return response
   },
   function (error) {
-    console.log('response interceptor1 onRejected()')
     return Promise.reject(error);
   }
 )

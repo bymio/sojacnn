@@ -1,14 +1,14 @@
 <template>
   <div>
     <el-card>
-      hello newsList3
+      hello newsList4
     </el-card>
   </div>
 </template>
 
 <script>
 export default {
-  name:'newsList3',
+  name:'newsList4',
   components:{},
   data(){
     return {

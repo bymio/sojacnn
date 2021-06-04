@@ -16,9 +16,11 @@ const PopularScience = () => import('../views/popularscience/PopularScience.vue'
 const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
 
+// 后台管理路由
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
 const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
 const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
+const newsList4 = () => import('../components/common/administrators/adminList/newsList4.vue')
 
 //科普概况
 const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
@@ -76,20 +78,24 @@ const routes = [{
     children: [
       {
         path:'',
-        redirect:'/newsList'
+        redirect:'/administrators/newsList'
       },
       {
-          path: '/newsList',
+          path: '/administrators/newsList',
           component: newsList
       },
       {
-          path: '/newsList2',
+          path: '/administrators/newsList2',
           component: newsList2
       },
       {
-          path: '/newsList3',
+          path: '/administrators/newsList3',
           component: newsList3
       },
+      {
+          path: '/administrators/newsList4',
+          component: newsList
+      }
     ]
   },
   {
@@ -194,11 +200,15 @@ const router = new VueRouter({
 // 路由导航守卫
 router.beforeEach((to, from, next) => {
   // 如果去登录页面，放行
-  if (to.path === '/login') return next()
-  // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
-  const cookie = window.sessionStorage.getItem('cookie')
-  if (!cookie) return next('/login')
-  next()
+  if(to.path === '/login'){
+    document.cookie = name+"=;expires="+(new Date(0)).toGMTString()+";path=/";
+    next()
+  }else{
+    // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
+    const cookie = document.cookie
+    if (!cookie) return next('/login')
+    next()
+  }
 })
 
 
