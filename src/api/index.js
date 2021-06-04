@@ -63,3 +63,13 @@ export const findNewsByTypeAndCategory = (data) => {
   })
 };
 
+export const getRole = (p) => {
+  let param = new URLSearchParams()
+  param.append('p',p)
+  return request({
+    url:'/api/background/findRoles',
+    method:'GET',
+    params:param
+  })
+}
+

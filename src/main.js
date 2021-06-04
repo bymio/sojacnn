@@ -11,7 +11,6 @@ Vue.prototype.$message = Message
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 Vue.use(mavonEditor)
-
 new Vue({
   el: '#app',
   router,

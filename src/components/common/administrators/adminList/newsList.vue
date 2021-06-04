@@ -1,11 +1,9 @@
 <template>
   <div>
     <el-card>
-       <el-table :data="tableData" stripe style="width: 100%" :border = 'true'>
-        <el-table-column type='index' label="#"></el-table-column>
-        <el-table-column prop="date" label="日期" width="180"></el-table-column>
-        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-        <el-table-column prop="address" label="地址"></el-table-column>
+       <el-table :data="roleList" stripe style="width: 100%" :border = 'true'>
+        <el-table-column prop="id" label="ID" width="80px"></el-table-column>
+        <el-table-column prop="roleName" label="姓名" width="180"></el-table-column>
       </el-table>
     </el-card>
     
@@ -13,32 +11,28 @@
 </template>
 
 <script>
+import { getRole } from '@/api/index'
 export default {
   name:'newsList',
   components:{
   },
   data(){
     return {
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      // 角色列表
+      roleList:[]
     }
   },
+  created(){
+    this.getRoleList()
+  },
   methods: {
+    async getRoleList(){//获取角色
+      const res = await getRole(1)
+      console.log(res)
+      if(res.status !== 200)return this.$messge.error('请求角色失败');
+      this.roleList = res.data.data.items
+      // console.log(this.roleList)
+    }
   }
 }
 </script>

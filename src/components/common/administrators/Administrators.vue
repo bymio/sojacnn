@@ -14,27 +14,25 @@
         <!-- 展开 收缩 -->
         <div class="toggle-button" @click="toggleCollapse">|||</div>
         <!-- 侧边栏菜单 -->
-        <el-menu
-          background-color="#333744"
-          text-color="#fff"
-          active-text-color="#409EFF"
-          :unique-opened = 'true'
-          :collapse-transition = 'false'
-          :collapse = 'isCollapse'
-          :router = 'true'>
-
-          <el-menu-item index="/newsList">
+        <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF"
+          :unique-opened = 'true' :collapse-transition = 'false' :collapse = 'isCollapse'
+          :router = 'true'
+        >
+          <el-menu-item index="/administrators/newsList">
             <i class="el-icon-menu"></i>
             <span slot="title">角色管理</span>
           </el-menu-item>
-
-          <el-menu-item index="/newsList2">
+          <el-menu-item index="/administrators/newsList2">
             <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
+            <span slot="title">新闻主体</span>
           </el-menu-item>
-          <el-menu-item index="/newsList3">
+          <el-menu-item index="/administrators/newsList3">
             <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
+            <span slot="title">新闻类型</span>
+          </el-menu-item>
+          <el-menu-item index="/administrators/newsList4">
+            <i class="el-icon-document"></i>
+            <span slot="title">新闻类别</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -62,7 +60,16 @@ export default {
       this.isCollapse = !this.isCollapse
     },
     loginOut(){//点击退出按钮退出登录
-      window.sessionStorage.clear()
+    // 把cookie以'='分割，取key值
+      const cookie = document.cookie.split('=')[0]
+      function clearCookie(cname, cvalue, exdays) {//清除cookie
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/";//path=/是根路径
+      }
+      clearCookie(cookie,'',-1)
+
       this.$router.push('/login')
       this.$message.info('已退出登录状态')
     }
