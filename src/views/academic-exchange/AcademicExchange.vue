@@ -7,7 +7,7 @@
           <div class="current-location">
             <h2>学术交流</h2>
             <p>
-              <a href="/gsosp">学术交流</a>
+              <a href="/academicexchange">学术交流</a>
               <span>/</span>
               当前位置: <a href="/home">首页</a>
             </p>
@@ -104,8 +104,8 @@ export default {
   margin: 0 auto;
   top: 181px;
 }
-.el-col-12 {
-  width: 210px;
+.acade .el-col-12 {
+  width: 80%;
 }
 .current-location {
   width: 1200px;

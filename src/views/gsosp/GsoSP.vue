@@ -110,7 +110,7 @@ export default {
   margin: 0 auto;
   top: 181px;
 }
-.el-col-12 {
+.gsosp .el-col-12 {
     width: 80%;
 }
 .current-location {

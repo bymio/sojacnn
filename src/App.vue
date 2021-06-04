@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="wrapper">
     <router-view />
-    <div class="mec">
+    <!-- <div class="mec">
 
     <HelloWorld />
-    </div>
+    </div> -->
 
   </div>
 </template>

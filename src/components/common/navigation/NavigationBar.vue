@@ -1,7 +1,7 @@
 <template>
 <!--  -->
   <div class="navigation">
-    <tab-bar >
+    <!-- <tab-bar >
       <tab-bar-item path="/home">
         <div class="title" value='1' slot="item-text">本站首页</div>
       </tab-bar-item>
@@ -31,7 +31,43 @@
       <tab-bar-item path="/contact">
         <div class="title" value='9' slot="item-text">联系我们</div>
       </tab-bar-item>
-    </tab-bar>
+    </tab-bar> -->
+    <div class="tab-item">
+
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      @select="handleSelect"
+    >
+      <el-menu-item index="/home">首页</el-menu-item>
+      <el-menu-item index="/gosop">gosop</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <el-menu-item index="/">处理中心</el-menu-item>
+      <!-- <el-submenu index="2">
+        <template slot="title">我的工作台</template>
+        <el-menu-item index="2-1">选项1</el-menu-item>
+        <el-menu-item index="2-2">选项2</el-menu-item>
+        <el-menu-item index="2-3">选项3</el-menu-item>
+        <el-submenu index="2-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="2-4-1">选项1</el-menu-item>
+          <el-menu-item index="2-4-2">选项2</el-menu-item>
+          <el-menu-item index="2-4-3">选项3</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="3" disabled>消息中心</el-menu-item>
+      <el-menu-item index="4"
+        ><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item
+      > -->
+    </el-menu>
+    </div>
     <contact-information-bar></contact-information-bar>
   </div>
 </template>
@@ -64,18 +100,20 @@ export default {
 <style scoped>
 .navigation {
   position: absolute;
-  /* width: 1903px; */
   width: 100%;
-
   height: 61px;
   background: #1675e2;
 }
-a {
-  color: #fff;
-}
-a:hover {
+.tab-item{
+  width: 1200px;
+  flex: 1;
   background: #1675e2;
+  margin: 0 auto;
+  height: 61px;
+  line-height: 61px;
+  font-size: 16px;
 }
+
 /* .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid #f4f4f5;
 }

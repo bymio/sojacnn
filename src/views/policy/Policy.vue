@@ -7,7 +7,7 @@
           <div class="current-location">
             <h2>政策法规</h2>
             <p>
-              <a href="/gsosp">政策法规</a>
+              <a href="/policy">政策法规</a>
               <span>/</span>
               当前位置: <a href="/home">首页</a>
             </p>
@@ -60,10 +60,20 @@ export default {
   methods: {
     async initMenu() {
       let result = await findCategoryByContypeId({ contypeId: 3 });
+      console.log(result);
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
+      // switch (id) {
+      //   case 6:
+      //     this.$router.push("/po1");
+      //     break;
+      //   case 7:
+      //     this.$router.push("/po2");
+      //     break;
+      // }
     },
     getPath(id) {
+      router.addRouter('xxx');  
       switch (id) {
         case 6:
           this.$router.push("/po1");
@@ -104,11 +114,11 @@ export default {
   margin: 0 auto;
   top: 181px;
 }
-.el-col-12 {
-  width: 210px;
+.policy .el-col-12 {
+  width: 100%;
 }
 .current-location {
-  width: 1200px;
+  width: 1200px; 
   height: 50px;
   background: rgb(255, 255, 255);
   margin-top: 10px;
