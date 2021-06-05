@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+  // 1.安装插件
+  Vue.use(VueRouter)
 const Login = () => import('../components/common/login/Login.vue')
 const Home = () => import('../views/home/Home')
 const HomeImgInfo = () => import('../views/home/home-img-info/HomeImgInfo.vue')
@@ -34,6 +35,9 @@ const poNavigation2 = () => import('../views/policy/correspondingcontent/2.vue')
 const acNavigation = () => import('../views/academic-exchange/correspondingcontent/1.vue')
 const acNavigation2 = () => import('../views/academic-exchange/correspondingcontent/2.vue')
 
+//科普风采
+const puNavigation = () => import('../views/popularscience/correspondingcontent/1.vue')
+const puNavigation2 = () => import('../views/popularscience/correspondingcontent/2.vue')
 
 // const originalPush = VueRouter.prototype.push
 
@@ -63,9 +67,18 @@ VueRouter.prototype.push = function push(location) {
 // 1.安装插件
 Vue.use(VueRouter)
 
+const addRoute = function (path) {
+  console.log(path);
+  
+  let t = this.routes;
+  console.log(t);
+  
+}
+
 // 2.创建router
 const routes = [{
     path: '',
+    id : "",
     redirect: '/home'
   },
   {
@@ -75,6 +88,23 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
+<<<<<<< HEAD
+    children: [{
+        path: '',
+        redirect: '/newsList'
+      },
+      {
+        path: '/newsList',
+        component: newsList
+      },
+      {
+        path: '/newsList2',
+        component: newsList2
+      },
+      {
+        path: '/newsList3',
+        component: newsList3
+=======
     children: [
       {
         path:'',
@@ -91,6 +121,7 @@ const routes = [{
       {
           path: '/administrators/newsList3',
           component: newsList3
+>>>>>>> 5731624dfeeee1000db73af3df73efdd8a3d0a42
       },
       {
           path: '/administrators/newsList4',
@@ -168,18 +199,18 @@ const routes = [{
     path: '/academicexchange',
     component: AcademicExchange,
     children: [{
-      path: '',
-      redirect: '/ac1'
-    },
-    {
-      path: '/ac1',
-      component: acNavigation
-    },
-    {
-      path: '/ac2',
-      component: acNavigation2,
-    }
-  ]
+        path: '',
+        redirect: '/ac1'
+      },
+      {
+        path: '/ac1',
+        component: acNavigation
+      },
+      {
+        path: '/ac2',
+        component: acNavigation2,
+      }
+    ]
   },
   {
     path: '/businessguide',
@@ -187,13 +218,27 @@ const routes = [{
   },
   {
     path: '/popularscience',
-    component: PopularScience
+    component: PopularScience,
+    children: [{
+        path: '',
+        redirect: '/pu1'
+      },
+      {
+        path: '/pu1',
+        component: puNavigation
+      },
+      {
+        path: '/pu2',
+        component: puNavigation2,
+      }
+    ]
   },
   {
     path: '/contact',
     component: Contact
   },
 ]
+
 const router = new VueRouter({
   routes,
 })
@@ -208,6 +253,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
 
 export default router
