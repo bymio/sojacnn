@@ -22,14 +22,13 @@
                   class="el-menu-vertical-demo"
                   text-color="#000"
                   active-text-color="#409EFF"
-                  :router = 'true'
-
+                  :router="true"
                 >
                   <el-menu-item
                     v-for="item in MenuList"
                     :key="item.id"
-                    :index=" '/'+item.id"
-                    @click="saveNavState('/'+item.id)"
+                    :index="'/' + item.id"
+                    @click="saveNavState('/' + item.id)"
                   >
                     <i class="el-icon-menu"></i>
                     <span slot="title">{{ item.categoryName }}</span>
@@ -55,11 +54,11 @@ export default {
   data() {
     return {
       MenuList: [],
-      activeIndex:''
+      activeIndex: "",
     };
   },
-  created(){
-    this.activeIndex = window.sessionStorage.getItem('activeIndex')
+  created() {
+    this.activeIndex = window.sessionStorage.getItem("activeIndex");
   },
   mounted() {
     this.initMenu();
@@ -70,23 +69,14 @@ export default {
       console.log(result);
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
-      // switch (id) {
-      //   case 6:
-      //     this.$router.push("/po1");
-      //     break;
-      //   case 7:
-      //     this.$router.push("/po2");
-      //     break;
-      // }
     },
     // getPath(id) {
-    //   router.addRouter('xxx');  
     //   switch (id) {
     //     case 6:
-    //       this.$router.push("/po1");
+    //       this.$router.push("/policy/po1");
     //       break;
     //     case 7:
-    //       this.$router.push("/po2");
+    //       this.$router.push("/policy/po2");
     //       break;
     //     // case 3:
     //     //   this.$router.push('/gsnavigation')
@@ -98,14 +88,16 @@ export default {
     //     //   this.$router.push('/gsnavigation')
     //     //   break;
 
-    //     default:
-    //       break;
+    //     //     default:
+    //     //       break;
+    //     //   }
+    //     // },
     //   }
     // },
-    saveNavState(path){
-      window.sessionStorage.setItem('activeIndex',path)
-      this.activeIndex = path
-    }
+    saveNavState(path) {
+      window.sessionStorage.setItem("activeIndex", path);
+      this.activeIndex = path;
+    },
   },
   components: {
     MainTabBar,
@@ -129,7 +121,7 @@ export default {
   width: 100%;
 }
 .current-location {
-  width: 1200px; 
+  width: 1200px;
   height: 50px;
   background: rgb(255, 255, 255);
   margin-top: 10px;

@@ -17,17 +17,13 @@
           <el-aside width="200px">
             <el-row class="tac">
               <el-col :span="12">
-                <el-menu
-                  default-active="activeIndex"
-                  class="el-menu-vertical-demo"
-                  text-color="#fff"
-                  active-text-color="#409EFF"
-                >
+                <el-menu default-active="activeIndex">
                   <el-menu-item
                     v-for="item in MenuList"
+                    background-color="#ecf5ff"
                     :key="item.id"
                     :index="'/' + item.id"
-                    @click="saveNavState('/'+item.id)"
+                    @click="getPath(item.id)"
                   >
                     <i class="el-icon-menu"></i>
                     <span slot="title">{{ item.categoryName }}</span>
@@ -59,7 +55,6 @@ export default {
     };
   },
   created(){
-    this.activeIndex = window.sessionStorage.getItem('activeIndex')
     this.initMenu();
   },
   mounted() {
@@ -73,36 +68,29 @@ export default {
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
     },
-    menuClick() {},
-    // getPath(id) {
-    //   // if(id == 1){
-    //   //   this.$router.push("/gsnavigation")
-    //   // }
-    //   switch (id) {
-    //     case 1:
-    //       this.$router.push("/index1");
-    //       break;
-    //     case 2:
-    //       this.$router.push("/index2");
-    //       break;
-    //     // case 3:
-    //     //   this.$router.push('/gsnavigation')
-    //     //   break;
-    //     // case 4:
-    //     //   this.$router.push('/gsnavigation')
-    //     //   break;
-    //     // case 5:
-    //     //   this.$router.push('/gsnavigation')
-    //     //   break;
-
-    //     default:
-    //       break;
-    //   }
-    // },
-    saveNavState(path){
-      window.sessionStorage.setItem('activeIndex',path)
-      this.activeIndex = path
-    }
+    getPath(id) {
+      // if(id == 1){
+      //   this.$router.push("/gsnavigation")
+      // }
+      // this.$router.push({ path: "/gsosp/" + "123" });
+      switch (id) {
+        case 1:
+          this.$router.push("/index1");
+          break;
+        case 2:
+          this.$router.push("/index2");
+          break;
+        // case 3:
+        //   this.$router.push('/gsnavigation')
+        //   break;
+        // case 4:
+        //   this.$router.push('/gsnavigation')
+        //   break;
+        // case 5:
+        //   this.$router.push('/gsnavigation')
+        //   break;
+      }
+    },
   },
 };
 </script>
@@ -121,7 +109,7 @@ export default {
   top: 181px;
 }
 .gsosp .el-col-12 {
-    width: 80%;
+  width: 80%;
 }
 .current-location {
   width: 1200px;
@@ -130,20 +118,20 @@ export default {
   margin-top: 10px;
   line-height: 50px;
 }
-.current-location h2{
+.current-location h2 {
   display: inline-block;
   color: #1675e2;
 }
-.current-location p{
+.current-location p {
   float: right;
 }
-.current-location p a{
+.current-location p a {
   float: right;
 }
-.current-location p a:hover{
+.current-location p a:hover {
   color: #1675e2;
 }
-.current-location span{
+.current-location span {
   float: right;
 }
 </style>

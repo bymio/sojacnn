@@ -1,14 +1,6 @@
 <template>
   <div class="content3">
     <el-card class="box-card">
-      <!-- categoryId: 1
-contypeId: 2
-coverPath: "1.png"
-createTime: "2021-06-02 20:06:38"
-dataString: "测试内容"
-id: 1400062803305308200
-title: "测试"
-updateTime: "2021-06-02 20:06:38" -->
       <div>
         {{ menuContent.title }}
       </div>

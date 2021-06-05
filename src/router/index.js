@@ -136,13 +136,14 @@ const routes = [{
         path: '',
         redirect: '/6'
       },
+
       {
         path: '/6',
-        component: poNavigation
+        component: poNavigation3,
       },
       {
         path: '/7',
-        component: poNavigation2,
+        component: poNavigation4,
       },
       {
         path: '/8',
@@ -157,19 +158,19 @@ const routes = [{
   {
     path: '/gsosp',
     component: GsoSP,
-    // children: [{
-    //     path: '',
-    //     redirect: '/index1'
-    //   },
-    //   {
-    //     path: '/index1',
-    //     component: gsNavigation
-    //   },
-    //   {
-    //     path: '/index2',
-    //     component: gsNavigation2,
-    //   }
-    // ]
+    children: [{
+        path: '',
+        redirect: '/index1'
+      },
+      {
+        path: '/index1',
+        component: gsNavigation
+      },
+      {
+        path: '/index2',
+        component: gsNavigation2,
+      }
+    ]
   },
   {
     path: '/scienceproject',
