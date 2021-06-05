@@ -26,7 +26,7 @@ export default {
     this.getRoleList()
   },
   methods: {
-    async getRoleList(){//获取角色
+    async getRoleList(){//获取角色数据
       const res = await getRole(1)
       console.log(res)
       if(res.status !== 200)return this.$messge.error('请求角色失败');
