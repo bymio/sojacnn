@@ -1,5 +1,5 @@
 <template>
-<!--  -->
+  <!--  -->
   <div class="navigation">
     <!-- <tab-bar >
       <tab-bar-item path="/home">
@@ -33,14 +33,13 @@
       </tab-bar-item>
     </tab-bar> -->
     <div class="tab-item">
-
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        active-text-color="#ffd04b"
+        background-color="#1675e2"
+        active-text-color="#fff"
+        text-color="#fff"
       >
         <el-menu-item index="/home">本站首页</el-menu-item>
         <el-menu-item index="/gosop">科普概况</el-menu-item>
@@ -49,24 +48,10 @@
         <el-menu-item index="/academicexchange">学术交流</el-menu-item>
         <el-menu-item index="/businessguide">办事指南</el-menu-item>
         <el-menu-item index="/popularscience">科普风采</el-menu-item>
-        <el-menu-item index="/"><a href="https://www.pdsu.edu.cn/">学校中心</a></el-menu-item>
-        <el-menu-item index="/">联系我们</el-menu-item>
-        <!-- <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"
-          ><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item
-        > -->
+        <el-menu-item
+          ><a href="https://www.pdsu.edu.cn/">学校中心</a></el-menu-item
+        >
+        <el-menu-item index="/contact">联系我们</el-menu-item>
       </el-menu>
     </div>
     <contact-information-bar></contact-information-bar>
@@ -74,7 +59,6 @@
 </template>
 
 <script>
-
 import TabBar from "components/common/tabbar/TabBar";
 import ContactInformationBar from "components/common/contact-information/ContactInformationBar";
 import TabBarItem from "components/common/tabbar/TabBarItem";
@@ -83,12 +67,11 @@ export default {
     return {
       current: [],
       index: 2,
+      activeIndex: "1",
     };
   },
   mounted() {},
-  methods: {
-    
-  },
+  methods: {},
 
   components: {
     TabBar,
@@ -99,42 +82,30 @@ export default {
 </script>
 
 <style scoped>
-.el-menu{
+.el-menu {
   display: flex;
 }
-.el-menu-item{
+.el-menu-item {
   text-align: center;
   flex: 1;
+  font-size: 16px;
+  color: #303133;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
-/* .tab-item{
+.tab-item {
   flex: 1;
   background: #1675e2;
   margin: 0 auto;
   height: 61px;
   line-height: 61px;
-  font-size: 16px;
-} */
-
-/* .el-menu--horizontal > .el-menu-item.is-active {
-  border-bottom: 2px solid #f4f4f5;
 }
-
 .el-menu-demo {
   width: 1200px;
   display: flex;
   background: #1675e2;
   margin: 0 auto;
 }
-
-.el-menu-item {
-  text-align: center;
-  height: 61px;
-  flex: 1;
-}
-
-.el-menu-item a {
-  display: block;
-  color: #ffffff;
-  font-size: 16px;
-} */
 </style>
