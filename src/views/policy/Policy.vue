@@ -18,15 +18,18 @@
             <el-row class="tac">
               <el-col :span="12">
                 <el-menu
-                  default-active="2"
+                  default-active="activeIndex"
                   class="el-menu-vertical-demo"
-                  text-color="#fff"
+                  text-color="#000"
                   active-text-color="#409EFF"
+                  :router = 'true'
+
                 >
                   <el-menu-item
-                    @click="getPath(item.id)"
                     v-for="item in MenuList"
                     :key="item.id"
+                    :index=" '/'+item.id"
+                    @click="saveNavState('/'+item.id)"
                   >
                     <i class="el-icon-menu"></i>
                     <span slot="title">{{ item.categoryName }}</span>
@@ -52,7 +55,11 @@ export default {
   data() {
     return {
       MenuList: [],
+      activeIndex:''
     };
+  },
+  created(){
+    this.activeIndex = window.sessionStorage.getItem('activeIndex')
   },
   mounted() {
     this.initMenu();
@@ -72,29 +79,33 @@ export default {
       //     break;
       // }
     },
-    getPath(id) {
-      router.addRouter('xxx');  
-      switch (id) {
-        case 6:
-          this.$router.push("/po1");
-          break;
-        case 7:
-          this.$router.push("/po2");
-          break;
-        // case 3:
-        //   this.$router.push('/gsnavigation')
-        //   break;
-        // case 4:
-        //   this.$router.push('/gsnavigation')
-        //   break;
-        // case 5:
-        //   this.$router.push('/gsnavigation')
-        //   break;
+    // getPath(id) {
+    //   router.addRouter('xxx');  
+    //   switch (id) {
+    //     case 6:
+    //       this.$router.push("/po1");
+    //       break;
+    //     case 7:
+    //       this.$router.push("/po2");
+    //       break;
+    //     // case 3:
+    //     //   this.$router.push('/gsnavigation')
+    //     //   break;
+    //     // case 4:
+    //     //   this.$router.push('/gsnavigation')
+    //     //   break;
+    //     // case 5:
+    //     //   this.$router.push('/gsnavigation')
+    //     //   break;
 
-        default:
-          break;
-      }
-    },
+    //     default:
+    //       break;
+    //   }
+    // },
+    saveNavState(path){
+      window.sessionStorage.setItem('activeIndex',path)
+      this.activeIndex = path
+    }
   },
   components: {
     MainTabBar,

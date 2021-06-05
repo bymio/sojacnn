@@ -40,6 +40,7 @@
         background-color="#1675e2"
         active-text-color="#fff"
         text-color="#fff"
+        :router = 'true'
       >
         <el-menu-item index="/home">本站首页</el-menu-item>
         <el-menu-item index="/gosop">科普概况</el-menu-item>

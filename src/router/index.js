@@ -36,6 +36,8 @@ const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
 //政策法规
 const poNavigation = () => import('../views/policy/correspondingcontent/1.vue')
 const poNavigation2 = () => import('../views/policy/correspondingcontent/2.vue')
+const poNavigation3 = () => import('../views/policy/correspondingcontent/3.vue')
+const poNavigation4 = () => import('../views/policy/correspondingcontent/4.vue')
 
 //学术交流
 const acNavigation = () => import('../views/academic-exchange/correspondingcontent/1.vue')
@@ -132,34 +134,42 @@ const routes = [{
     component: Policy,
     children: [{
         path: '',
-        redirect: '/po1'
+        redirect: '/6'
       },
       {
-        path: '/po1',
+        path: '/6',
         component: poNavigation
       },
       {
-        path: '/po2',
+        path: '/7',
         component: poNavigation2,
+      },
+      {
+        path: '/8',
+        component: poNavigation3,
+      },
+      {
+        path: '/9',
+        component: poNavigation4,
       }
     ]
   },
   {
     path: '/gsosp',
     component: GsoSP,
-    children: [{
-        path: '',
-        redirect: '/index1'
-      },
-      {
-        path: '/index1',
-        component: gsNavigation
-      },
-      {
-        path: '/index2',
-        component: gsNavigation2,
-      }
-    ]
+    // children: [{
+    //     path: '',
+    //     redirect: '/index1'
+    //   },
+    //   {
+    //     path: '/index1',
+    //     component: gsNavigation
+    //   },
+    //   {
+    //     path: '/index2',
+    //     component: gsNavigation2,
+    //   }
+    // ]
   },
   {
     path: '/scienceproject',
