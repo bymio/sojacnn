@@ -88,23 +88,6 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
-<<<<<<< HEAD
-    children: [{
-        path: '',
-        redirect: '/newsList'
-      },
-      {
-        path: '/newsList',
-        component: newsList
-      },
-      {
-        path: '/newsList2',
-        component: newsList2
-      },
-      {
-        path: '/newsList3',
-        component: newsList3
-=======
     children: [
       {
         path:'',
@@ -121,7 +104,6 @@ const routes = [{
       {
           path: '/administrators/newsList3',
           component: newsList3
->>>>>>> 5731624dfeeee1000db73af3df73efdd8a3d0a42
       },
       {
           path: '/administrators/newsList4',
