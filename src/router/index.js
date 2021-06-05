@@ -2,27 +2,33 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
   // 1.安装插件
   Vue.use(VueRouter)
+//登录
 const Login = () => import('../components/common/login/Login.vue')
+//home相关
 const Home = () => import('../views/home/Home')
 const HomeImgInfo = () => import('../views/home/home-img-info/HomeImgInfo.vue')
 const Circulars = () => import('../views/home/circulars/substance/Substance.vue')
 const Work = () => import('../views/home/work/substance/Substance.vue')
 const College = () => import('../views/home/college/substance/Substance.vue')
-const Policy = () => import('../views/policy/Policy.vue')
+
+//其余八个导航相关
 const GsoSP = () => import('../views/gsosp/GsoSP.vue')
+const Policy = () => import('../views/policy/Policy.vue')
 const ScienceProject = () => import('../views/scienceproject/ScienceProject.vue')
 const AcademicExchange = () => import('../views/academic-exchange/AcademicExchange.vue')
 const BusinessGuide = () => import('../views/business-guide/BusinessGuide.vue')
 const PopularScience = () => import('../views/popularscience/PopularScience.vue')
 const Contact = () => import('../views/contact/Contact.vue')
-const Administrators = () => import('../components/common/administrators/Administrators.vue')
 
+//后台管理
+const Administrators = () => import('../components/common/administrators/Administrators.vue')
 // 后台管理路由
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
 const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
 const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
 const newsList4 = () => import('../components/common/administrators/adminList/newsList4.vue')
 
+//左侧导航相关
 //科普概况
 const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
 const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
@@ -39,11 +45,6 @@ const acNavigation2 = () => import('../views/academic-exchange/correspondingcont
 const puNavigation = () => import('../views/popularscience/correspondingcontent/1.vue')
 const puNavigation2 = () => import('../views/popularscience/correspondingcontent/2.vue')
 
-// const originalPush = VueRouter.prototype.push
-
-// VueRouter.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch(err => err)
-// }
 const routerPush = VueRouter.prototype.push
 // 重写push函数
 VueRouter.prototype.push = function push(location) {
@@ -66,14 +67,6 @@ VueRouter.prototype.push = function push(location) {
 
 // 1.安装插件
 Vue.use(VueRouter)
-
-const addRoute = function (path) {
-  console.log(path);
-  
-  let t = this.routes;
-  console.log(t);
-  
-}
 
 // 2.创建router
 const routes = [{
@@ -117,11 +110,6 @@ const routes = [{
       title: '首页'
     },
     component: Home,
-    // children: [{
-    //     path: 'imginfo',
-    //     component: HomeImgInfo
-    //   },
-    // ]
   },
   {
     path: '/imginfo',
