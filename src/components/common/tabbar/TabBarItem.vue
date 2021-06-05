@@ -29,16 +29,12 @@ export default {
   },
   computed: {
     isActive() {
-      // /home -> item1(/home) = true
-      // /home -> item1(/category) = false
-      // /home -> item1(/cart) = true
-      // /home -> item1(/profile) = true
-      return this.$route.path.indexOf(this.path) !== -1;
+      // return this.$route.path.indexOf(this.path) !== -1;
     },
     activeStyle() {
-      return this.isActive
-        ? { color: this.activeColor, backgroundColor: "#014899" }
-        : {};
+      // return this.isActive
+      //   ? { color: this.activeColor, backgroundColor: "#014899" }
+      //   : {};
     },
   },
   methods: {
@@ -49,7 +45,7 @@ export default {
       //     console.log(this.index);
       //   }
       // }
-      this.$router.replace(this.path);
+      // this.$router.replace(this.path);
     },
   },
 };

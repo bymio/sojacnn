@@ -34,39 +34,40 @@
     </tab-bar> -->
     <div class="tab-item">
 
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-    >
-      <el-menu-item index="/home">首页</el-menu-item>
-      <el-menu-item index="/gosop">gosop</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <el-menu-item index="/">处理中心</el-menu-item>
-      <!-- <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        active-text-color="#ffd04b"
+      >
+        <el-menu-item index="/home">本站首页</el-menu-item>
+        <el-menu-item index="/gosop">科普概况</el-menu-item>
+        <el-menu-item index="/policy">政策法规</el-menu-item>
+        <el-menu-item index="/scienceproject">科普项目</el-menu-item>
+        <el-menu-item index="/academicexchange">学术交流</el-menu-item>
+        <el-menu-item index="/businessguide">办事指南</el-menu-item>
+        <el-menu-item index="/popularscience">科普风采</el-menu-item>
+        <el-menu-item index="/"><a href="https://www.pdsu.edu.cn/">学校中心</a></el-menu-item>
+        <el-menu-item index="/">联系我们</el-menu-item>
+        <!-- <el-submenu index="2">
+          <template slot="title">我的工作台</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
         </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3" disabled>消息中心</el-menu-item>
-      <el-menu-item index="4"
-        ><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item
-      > -->
-    </el-menu>
+        <el-menu-item index="3" disabled>消息中心</el-menu-item>
+        <el-menu-item index="4"
+          ><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item
+        > -->
+      </el-menu>
     </div>
     <contact-information-bar></contact-information-bar>
   </div>
@@ -98,21 +99,21 @@ export default {
 </script>
 
 <style scoped>
-.navigation {
-  position: absolute;
-  width: 100%;
-  height: 61px;
-  background: #1675e2;
+.el-menu{
+  display: flex;
 }
-.tab-item{
-  width: 1200px;
+.el-menu-item{
+  text-align: center;
+  flex: 1;
+}
+/* .tab-item{
   flex: 1;
   background: #1675e2;
   margin: 0 auto;
   height: 61px;
   line-height: 61px;
   font-size: 16px;
-}
+} */
 
 /* .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid #f4f4f5;
