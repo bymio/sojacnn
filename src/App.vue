@@ -11,7 +11,6 @@
 
 <script>
 import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
-import HelloWorld from './common/HelloWorld.vue'
 
 export default {
   name: "app",

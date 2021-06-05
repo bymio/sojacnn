@@ -19,6 +19,7 @@ import 'tinymce/plugins/table'// 插入表格插件
 import 'tinymce/plugins/lists'// 列表插件
 import 'tinymce/plugins/wordcount'// 字数统计插件
 export default {
+  name:'tinymce-editor',
   components: {
     Editor
   },
