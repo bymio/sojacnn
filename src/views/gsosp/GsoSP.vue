@@ -17,14 +17,13 @@
           <el-aside width="200px">
             <el-row class="tac">
               <el-col :span="12">
-                <el-menu
-                  class="el-menu-vertical-demo"
-                >
+                <el-menu default-active="activeIndex">
                   <el-menu-item
-                    @click="getPath(item.id)"
                     v-for="item in MenuList"
                     background-color="#ecf5ff"
                     :key="item.id"
+                    :index="'/' + item.id"
+                    @click="getPath(item.id)"
                   >
                     <i class="el-icon-menu"></i>
                     <span slot="title">{{ item.categoryName }}</span>
@@ -48,13 +47,17 @@ import { findCategoryByContypeId } from "@/api/index";
 import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
 
 export default {
+  name:'GsoSP',
   data() {
     return {
       MenuList: [],
+      activeIndex:''
     };
   },
-  mounted() {
+  created(){
     this.initMenu();
+  },
+  mounted() {
   },
   components: {
     MainTabBar,
@@ -86,9 +89,6 @@ export default {
         // case 5:
         //   this.$router.push('/gsnavigation')
         //   break;
-
-        default:
-          break;
       }
     },
   },

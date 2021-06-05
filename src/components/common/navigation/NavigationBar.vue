@@ -1,37 +1,5 @@
 <template>
-  <!--  -->
   <div class="navigation">
-    <!-- <tab-bar >
-      <tab-bar-item path="/home">
-        <div class="title" value='1' slot="item-text">本站首页</div>
-      </tab-bar-item>
-      <tab-bar-item path="/gsosp">
-        <div class="title" value='2' slot="item-text">科普概况</div>
-      </tab-bar-item>
-      <tab-bar-item path="/policy">
-        <div class="title" value='3' slot="item-text">政策法规</div>
-      </tab-bar-item>
-      <tab-bar-item path="/scienceproject">
-        <div class="title" value='4' slot="item-text">科普项目</div>
-      </tab-bar-item>
-      <tab-bar-item path="/academicexchange">
-        <div class="title" value='5' slot="item-text">学术交流</div>
-      </tab-bar-item>
-      <tab-bar-item path="/businessguide">
-        <div class="title" value='6' slot="item-text">办事指南</div>
-      </tab-bar-item>
-      <tab-bar-item path="/popularscience">
-        <div class="title" value='7' slot="item-text">科普风采</div>
-      </tab-bar-item>
-      <tab-bar-item>
-        <div value='8' class="title" slot="item-text">
-          <a href="https://www.pdsu.edu.cn/">学校首页</a>
-        </div>
-      </tab-bar-item>
-      <tab-bar-item path="/contact">
-        <div class="title" value='9' slot="item-text">联系我们</div>
-      </tab-bar-item>
-    </tab-bar> -->
     <div class="tab-item">
       <el-menu
         class="el-menu-demo"
@@ -42,7 +10,7 @@
         :router="true"
       >
         <el-menu-item index="/home">本站首页</el-menu-item>
-        <el-menu-item v index="/gsosp">科普概况</el-menu-item>
+        <el-menu-item index="/gsosp">科普概况</el-menu-item>
         <el-menu-item index="/policy">政策法规</el-menu-item>
         <el-menu-item index="/scienceproject">科普项目</el-menu-item>
         <el-menu-item index="/academicexchange">学术交流</el-menu-item>
@@ -69,11 +37,8 @@ export default {
       navmsg: [],
     };
   },
-  mounted() {
-  },
-  methods: {
-   
-  },
+  mounted() {},
+  methods: {},
 
   components: {
     TabBar,

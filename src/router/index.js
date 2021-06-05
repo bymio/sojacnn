@@ -36,6 +36,8 @@ const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
 //政策法规
 const poNavigation = () => import('../views/policy/correspondingcontent/1.vue')
 const poNavigation2 = () => import('../views/policy/correspondingcontent/2.vue')
+const poNavigation3 = () => import('../views/policy/correspondingcontent/3.vue')
+const poNavigation4 = () => import('../views/policy/correspondingcontent/4.vue')
 
 //学术交流
 const acNavigation = () => import('../views/academic-exchange/correspondingcontent/1.vue')
@@ -132,15 +134,24 @@ const routes = [{
     component: Policy,
     children: [{
         path: '',
-        redirect: '/policy/po1'
+        redirect: '/6'
+      },
+
+      {
+        path: '/6',
+        component: poNavigation3,
       },
       {
-        path: '/policy/po1',
-        component: poNavigation,
+        path: '/7',
+        component: poNavigation4,
       },
       {
-        path: '/policy/po2',
-        component: poNavigation2,
+        path: '/8',
+        component: poNavigation3,
+      },
+      {
+        path: '/9',
+        component: poNavigation4,
       }
     ]
   },
