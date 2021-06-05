@@ -18,14 +18,12 @@
             <el-row class="tac">
               <el-col :span="12">
                 <el-menu
-                  default-active="2"
                   class="el-menu-vertical-demo"
-                  text-color="#fff"
-                  active-text-color="#409EFF"
                 >
                   <el-menu-item
                     @click="getPath(item.id)"
                     v-for="item in MenuList"
+                    background-color="#ecf5ff"
                     :key="item.id"
                   >
                     <i class="el-icon-menu"></i>
@@ -67,11 +65,11 @@ export default {
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
     },
-    menuClick() {},
     getPath(id) {
       // if(id == 1){
       //   this.$router.push("/gsnavigation")
       // }
+      // this.$router.push({ path: "/gsosp/" + "123" });
       switch (id) {
         case 1:
           this.$router.push("/index1");
@@ -111,7 +109,7 @@ export default {
   top: 181px;
 }
 .gsosp .el-col-12 {
-    width: 80%;
+  width: 80%;
 }
 .current-location {
   width: 1200px;
@@ -120,20 +118,20 @@ export default {
   margin-top: 10px;
   line-height: 50px;
 }
-.current-location h2{
+.current-location h2 {
   display: inline-block;
   color: #1675e2;
 }
-.current-location p{
+.current-location p {
   float: right;
 }
-.current-location p a{
+.current-location p a {
   float: right;
 }
-.current-location p a:hover{
+.current-location p a:hover {
   color: #1675e2;
 }
-.current-location span{
+.current-location span {
   float: right;
 }
 </style>

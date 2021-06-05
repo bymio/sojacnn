@@ -34,15 +34,15 @@
     </tab-bar> -->
     <div class="tab-item">
       <el-menu
-        :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
         background-color="#1675e2"
         active-text-color="#fff"
         text-color="#fff"
+        :router="true"
       >
         <el-menu-item index="/home">本站首页</el-menu-item>
-        <el-menu-item index="/gosop">科普概况</el-menu-item>
+        <el-menu-item v index="/gsosp">科普概况</el-menu-item>
         <el-menu-item index="/policy">政策法规</el-menu-item>
         <el-menu-item index="/scienceproject">科普项目</el-menu-item>
         <el-menu-item index="/academicexchange">学术交流</el-menu-item>
@@ -54,6 +54,7 @@
         <el-menu-item index="/contact">联系我们</el-menu-item>
       </el-menu>
     </div>
+
     <contact-information-bar></contact-information-bar>
   </div>
 </template>
@@ -65,13 +66,14 @@ import TabBarItem from "components/common/tabbar/TabBarItem";
 export default {
   data() {
     return {
-      current: [],
-      index: 2,
-      activeIndex: "1",
+      navmsg: [],
     };
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+  },
+  methods: {
+   
+  },
 
   components: {
     TabBar,
@@ -89,7 +91,6 @@ export default {
   text-align: center;
   flex: 1;
   font-size: 16px;
-  color: #303133;
   padding: 0 20px;
   cursor: pointer;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
@@ -107,5 +108,8 @@ export default {
   display: flex;
   background: #1675e2;
   margin: 0 auto;
+}
+.el-menu-item.is-active {
+  background: #125eb5 !important;
 }
 </style>

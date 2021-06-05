@@ -63,23 +63,14 @@ export default {
       console.log(result);
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
-      // switch (id) {
-      //   case 6:
-      //     this.$router.push("/po1");
-      //     break;
-      //   case 7:
-      //     this.$router.push("/po2");
-      //     break;
-      // }
     },
     getPath(id) {
-      router.addRouter('xxx');  
       switch (id) {
         case 6:
-          this.$router.push("/po1");
+          this.$router.push("/policy/po1");
           break;
         case 7:
-          this.$router.push("/po2");
+          this.$router.push("/policy/po2");
           break;
         // case 3:
         //   this.$router.push('/gsnavigation')

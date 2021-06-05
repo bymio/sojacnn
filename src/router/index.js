@@ -132,14 +132,14 @@ const routes = [{
     component: Policy,
     children: [{
         path: '',
-        redirect: '/po1'
+        redirect: '/policy/po1'
       },
       {
-        path: '/po1',
-        component: poNavigation
+        path: '/policy/po1',
+        component: poNavigation,
       },
       {
-        path: '/po2',
+        path: '/policy/po2',
         component: poNavigation2,
       }
     ]
