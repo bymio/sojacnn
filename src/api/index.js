@@ -63,12 +63,44 @@ export const findNewsByTypeAndCategory = (data) => {
   })
 };
 
+// 获取角色
 export const getRole = (p) => {
   let param = new URLSearchParams()
   param.append('p',p)
   return request({
     url:'/api/background/findRoles',
     method:'GET',
+    params:param
+  })
+}
+
+// 添加新闻类型
+export const newsXing = (data) => {
+  let param = new URLSearchParams()
+  param.append('contypeName',data)
+  return request({
+    url:'/api/background/saveNewsContype',
+    method:'POST',
+    params:param
+  })
+}
+// 删除新闻类型
+export const removeNewsXing = (id) => {
+  // let param = new URLSearchParams()
+  // param.append('id',id)
+  return request({
+    url:`/api/background/deleteContype/${id}`,
+    method:'POST',
+    // params:param
+  })
+}
+// 更新新闻类型
+export const updateNewsXing = (data) => {
+  let param = new URLSearchParams()
+  param.append('contypeName',data.editValue)
+  return request({
+    url:`/api/background/updateContype/${data.id}`,
+    method:'POST',
     params:param
   })
 }
