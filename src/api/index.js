@@ -104,4 +104,36 @@ export const updateNewsXing = (data) => {
     params:param
   })
 }
-
+// 获取新闻类型对应的类别
+export const getNewsBie = (data) => {
+  let param = new URLSearchParams()
+  param.append("contypeId", data.contypeId);
+  param.append('p',data.p)
+  return request({
+    url:'/api/newsFeature/findCategoryByContypeId',
+    method:'GET',
+    params:param
+  })
+}
+// 根据类型id，类别id，类别名称更新类别
+export const updateNewsBie = (data) => {
+  let param = new URLSearchParams()
+  param.append("categoryName", data.categoryName);
+  param.append("contypeId", data.contypeId);
+  param.append('id',data.id)
+  return request({
+    url:'/api/background/updateNewsCategory',
+    method:'POST',
+    params:param
+  })
+}
+// 删除新闻类别
+export const removeNewsBie = (id) => {
+  let param = new URLSearchParams()
+  param.append('id',id)
+  return request({
+    url:`/api/background/deleteNewsCategory`,
+    method:'POST',
+    params:param
+  })
+}

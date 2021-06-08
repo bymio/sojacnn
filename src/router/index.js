@@ -102,7 +102,7 @@ const routes = [{
       },
       {
           path: '/administrators/newsList4',
-          component: newsList
+          component: newsList4
       }
     ]
   },
