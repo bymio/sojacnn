@@ -137,3 +137,14 @@ export const removeNewsBie = (id) => {
     params:param
   })
 }
+// 添加新闻类别
+export const newsBie = (data) => {
+  let param = new URLSearchParams()
+  param.append("categoryName", data.categoryName);
+  param.append('contypeId',data.contypeId)
+  return request({
+    url:'/api/background/saveNewsCategory',
+    method:'POST',
+    params:param
+  })
+}

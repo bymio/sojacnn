@@ -6,54 +6,49 @@
         ref="editor"
         v-model="msg"
         :disabled="disabled"
+        :value="postForm.content"
         :base-url="baseUrl"
         :language="language"
         :skin="skin"
         @onClick="onClick"
       >
       </tinymce-editor>
+      <br>
       <el-button @click="clear">清空内容</el-button>
       <el-button @click="disabled = true">禁用</el-button>
       <el-button @click="disabled = false">启用</el-button>
-      <!-- 新闻添加按钮 -->
-      <el-row>
-        <el-col>
-          <el-button
-            class="addNews"
-            type="primary"
-            @click="showAddDialogVisible"
-            >添加新闻</el-button
-          >
-        </el-col>
-      </el-row>
-      <!-- 添加新闻对话框 -->
-      <el-dialog title="选择类型" :visible.sync="addDialogVisible" width="30%">
-        <el-form>
-          <el-form-item label="请选择">
-            <!-- 级联选择器  :options绑定数据源-->
-            <el-cascader
-              v-model="selectedKeys"
-              :options="parentCateList"
-              :props="cascaderProps"
-              @change="parentCateChanged"
-              clearable
-            >
-            </el-cascader>
-          </el-form-item>
-        </el-form>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="addDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="addDialogVisible = false"
-            >确 定</el-button
-          >
-        </span>
-      </el-dialog>
+
+<br><br>
+      <!-- 新闻类型 -->
+      <el-select v-model="value" filterable clearable placeholder="请选择新闻类型" @change="getValue">
+        <el-option
+          v-for="item in newsXing" :key="item.id"
+          :label="item.contypeName"
+          :value="item.id"
+        >
+        <span style="float: left">{{ item.contypeName }}</span>
+        <span style="float: right; color: #8492a6; font-size: 13px">{{ item.id }}</span>
+        </el-option>
+      </el-select>
+      <!-- 新闻类别 -->
+      <el-select v-model="value2" filterable clearable placeholder="请选择新闻类别" @change="getValue2" style="margin-left:20px">
+        <el-option
+          v-for="item in newsBie" :key="item.id"
+          :label="item.categoryName"
+          :value="item.id"
+        >
+        <span style="float: left">{{ item.categoryName }}</span>
+        <span style="float: right; color: #8492a6; font-size: 13px">{{ item.id }}</span>
+        </el-option>
+      </el-select>
+      <el-button type="primary" style="margin-left:20px">发布新闻</el-button>
     </el-card>
   </div>
 </template>
 
 <script>
-import TinymceEditor from "@/common/tinymce-editor/tinymce-editor";
+import { findContype, getNewsBie } from "@/api/index";
+import TinymceEditor from "@/common/tinymce-editor/tinymce-editor.vue";
 export default {
   name: "newsList2",
   components: {
@@ -61,35 +56,43 @@ export default {
   },
   data() {
     return {
-      msg: "Welcome to Use Tinymce Editor-liubing.me",
+      msg: "Welcome to Use Tinymce Editor",
+      postForm:{
+        content:'',
+      },
       disabled: false,
       baseUrl: process.env.NODE_ENV === "production" ? "/vue-use-tinymce" : "",
       language: "zh_CN",
       skin: "oxide",
-
-      // 选中的父级分类的id数组
-      selectedKeys: [],
-      //指定级联选择器的配置对象
-      cascaderProps: {
-        expandTrigger: "hover",
-        value: "cat_id",
-        label: "cat_name",
-        children: "children",
-        checkStrictly: "true", //可选择任意一级分类
+      // 默认存放输入框内容
+      newsXing: [],
+      newsBie: [],
+      // 新闻类型输入框值
+      value:'',
+      // 新闻类别输入框值
+      value2:'',
+      // 请求新闻类别参数
+      newsXingParms:{
+        contypeId:'',
+        p:1
       },
-      // 存放级联选择器数据
-      parentCateList: [],
-      // 默认关闭添加新闻弹出框
-      addDialogVisible: false,
+      // 请求新闻主体所需参数
+      newsTi:{
+
+      }
     };
   },
+  created() {
+    // 查找新闻类型
+    this.findNewsXing();
+  },
   methods: {
-    // 鼠标单击的事件
+    // 鼠标单击编辑器区域
     onClick(e, editor) {
       console.log("Element clicked");
       // console.log(e);
       // console.log(editor);
-      
+
       // 获取编辑器内容
       var activeEditor = tinymce.activeEditor;
       var editBody = activeEditor.getBody();
@@ -101,19 +104,31 @@ export default {
     clear() {
       this.$refs.editor.clear();
     },
-    parentCateChanged() {
-      //级联选择框选项变化时触发
-      console.log(this.selectedKeys);
+    async findNewsXing() {
+      //请求所有新闻类型
+      const res = await findContype();
+      // console.log(res);
+      this.newsXing = res.data.data.item;
     },
-    showAddDialogVisible() {
-      //点击添加新闻按钮触发
-      this.addDialogVisible = true;
+    async getValue(){//点击新闻类型输入框触发
+      console.log(this.value)
+      this.newsXingParms.contypeId = this.value
+
+      const res = await getNewsBie(this.newsXingParms)
+      // console.log(res)
+      this.newsBie = res.data.data.items
     },
+    getValue2(){//点击新闻类别输入框触发
+      console.log(this.value2)
+    }
   },
 };
 </script>
 <style scoped>
 .addNews {
+  margin-top: 20px;
+}
+.demo-form-inline {
   margin-top: 20px;
 }
 </style>
