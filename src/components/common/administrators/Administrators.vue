@@ -16,7 +16,7 @@
         <!-- 侧边栏菜单 -->
         <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF"
           :unique-opened = 'true' :collapse-transition = 'false' :collapse = 'isCollapse'
-          :router = 'true'
+          :router = 'true' :default-active="$route.path"
         >
           <el-menu-item index="/administrators/newsList">
             <i class="el-icon-menu"></i>

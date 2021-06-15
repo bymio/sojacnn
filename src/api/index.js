@@ -49,6 +49,20 @@ export const findCategoryByContypeId = (data) => {
   })
 };
 
+//根据类型类别插入新闻
+export const getNewsTiBydata = (dataParams) => {
+  let param = new URLSearchParams();
+  param.append("categoryId", dataParams.categoryId);
+  param.append("contypeId", dataParams.contypeId);
+  param.append("data", dataParams.data);
+  param.append("title", dataParams.title);
+  return request({
+    method: "POST",
+    url: "/api/background/saveNewsTheme",
+    // data用来设置POST请求体
+    params: param,
+  })
+};
 //根据类型类别查询一类新闻
 export const findNewsByTypeAndCategory = (data) => {
   let param = new URLSearchParams();
