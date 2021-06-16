@@ -76,6 +76,13 @@ export const findNewsByTypeAndCategory = (data) => {
     params: param,
   })
 };
+// 根据新闻ID删除新闻
+export const removeNews = (id) => {
+  return request({
+    method: "POST",
+    url: `/api/background/deleteNewsTheme/${id}`,
+  })
+}
 
 
 // 获取角色

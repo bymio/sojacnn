@@ -19,13 +19,24 @@
           :router = 'true' :default-active="$route.path"
         >
           <el-menu-item index="/administrators/newsList">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-user-solid"></i>
             <span slot="title">角色管理</span>
           </el-menu-item>
-          <el-menu-item index="/administrators/newsList2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">新闻主体</span>
-          </el-menu-item>
+          <el-submenu index="/administrators/newsList2">
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span>新闻主体</span>
+            </template>
+            
+            <el-menu-item index="/administrators/newsList2/push">
+              <i class="el-icon-circle-plus"></i>
+              <span slot="title">发布新闻</span>
+            </el-menu-item>
+            <el-menu-item index="/administrators/newsList2/find">
+              <i class="el-icon-zoom-in"></i>
+              <span slot="title">查找新闻</span>
+            </el-menu-item>
+          </el-submenu>
           <el-menu-item index="/administrators/newsList3">
             <i class="el-icon-document"></i>
             <span slot="title">新闻类型</span>

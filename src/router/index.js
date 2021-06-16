@@ -24,7 +24,8 @@ const Contact = () => import('../views/contact/Contact.vue')
 const Administrators = () => import('../components/common/administrators/Administrators.vue')
 // 后台管理路由
 const newsList = () => import('../components/common/administrators/adminList/newsList.vue')
-const newsList2 = () => import('../components/common/administrators/adminList/newsList2.vue')
+const newsList2push = () => import('../components/common/administrators/adminList/newsList2push.vue')
+const newsList2find = () => import('../components/common/administrators/adminList/newsList2find.vue')
 const newsList3 = () => import('../components/common/administrators/adminList/newsList3.vue')
 const newsList4 = () => import('../components/common/administrators/adminList/newsList4.vue')
 
@@ -92,10 +93,10 @@ const routes = [{
           path: '/administrators/newsList',
           component: newsList
       },
-      {
-          path: '/administrators/newsList2',
-          component: newsList2
-      },
+      // {
+      //     path: '/administrators/newsList2',
+      //     component: newsList2
+      // },
       {
           path: '/administrators/newsList3',
           component: newsList3
@@ -103,6 +104,14 @@ const routes = [{
       {
           path: '/administrators/newsList4',
           component: newsList4
+      },
+      {
+          path: '/administrators/newsList2/push',
+          component: newsList2push
+      },
+      {
+          path: '/administrators/newsList2/find',
+          component: newsList2find
       }
     ]
   },

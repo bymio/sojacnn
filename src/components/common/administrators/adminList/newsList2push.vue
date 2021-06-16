@@ -62,7 +62,7 @@
 import { findContype, getNewsBie ,getNewsTiBydata} from "@/api/index";
 import TinymceEditor from "@/common/tinymce-editor/tinymce-editor.vue";
 export default {
-  name: "newsList2",
+  name: "newsList2push",
   components: {
     TinymceEditor,
   },
