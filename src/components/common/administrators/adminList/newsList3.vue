@@ -2,7 +2,7 @@
   <div>
     <el-card>
       <el-button class="addButton" type="primary" @click="showNewsXingDialog">添加新闻类型</el-button>
-      <el-table :data="newsXing" stripe border style="width: 100%" max-height="300">
+      <el-table :data="newsXing" stripe border style="width: 100%">
         <el-table-column  type="expand" width="40px">
           <template slot-scope="scope">
             <!-- {{scope.row}} -->

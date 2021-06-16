@@ -8,7 +8,7 @@
       </div>
       <el-button type='info' @click="loginOut">退出</el-button>
     </el-header>
-    <el-container>
+    <el-container class="container">
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? '64px' : '200px' ">
         <!-- 展开 收缩 -->
@@ -125,7 +125,7 @@ export default {
   cursor: pointer;
 }
 .el-aside {
-  height: 800px;
+  height: 750px;
   background-color: #333744;
   color: #000;
   transition: .5s;

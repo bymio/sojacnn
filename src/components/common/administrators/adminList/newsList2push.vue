@@ -121,24 +121,22 @@ export default {
     clear() {
       this.$refs.editor.clear();
     },
-    async findNewsXing() {
-      //请求所有新闻类型
+    async findNewsXing() {//请求所有新闻类型
       const res = await findContype();
       // console.log(res);
       this.newsXing = res.data.data.item;
     },
-    async getValue() {
-      //点击新闻类型输入框触发
+    async getValue() {//点击新闻类型输入框触发
       // console.log(this.value);
       this.newsXingParms.contypeId = this.value;
       this.newsTi.contypeId = this.value
+      this.clearInputContent()
 
       const res = await getNewsBie(this.newsXingParms);
       // console.log(res)
       this.newsBie = res.data.data.items;
     },
-    getValue2() {
-      //点击新闻类别输入框触发
+    getValue2() {//点击新闻类别输入框触发
       // console.log(this.value2);
       this.newsTi.categoryId = this.value2
     },
@@ -148,6 +146,16 @@ export default {
       console.log(res)
       if(res.data.code !== 200)return this.$message.error('插入新闻失败')
       return this.$message.success('插入新闻成功')
+    },
+    clearInputContent(){// 当类型输入框内容发生改变时，清空类别输入框
+      const value = window.sessionStorage.getItem('value')
+      if(!value){
+          window.sessionStorage.setItem('value',this.value)
+      }else{
+        if(this.value !== value){
+          this.value2 = ''
+        }
+      }
     }
   },
 };

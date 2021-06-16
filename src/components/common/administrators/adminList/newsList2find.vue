@@ -104,7 +104,8 @@ export default {
       // console.log(this.value);
       this.newsXingParms.contypeId = this.value;
       this.newsTi.contypeId = this.value
-
+      // console.log(this.value)
+      this.clearInputContent()
       const res = await getNewsBie(this.newsXingParms);
       // console.log(res)
       this.newsBie = res.data.data.items;
@@ -132,6 +133,16 @@ export default {
       if(res.data.code !== 200)return this.$message.error('删除失败')
       this.$message.success('删除成功')
       findNewsByTypeAndCategory(this.newsTi)
+    },
+    clearInputContent(){// 当类型输入框内容发生改变时，清空类别输入框
+      const value = window.sessionStorage.getItem('value')
+      if(!value){
+          window.sessionStorage.setItem('value',this.value)
+      }else{
+        if(this.value !== value){
+          this.value2 = ''
+        }
+      }
     }
   }
 }
