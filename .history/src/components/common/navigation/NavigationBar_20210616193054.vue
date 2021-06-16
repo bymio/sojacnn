@@ -8,7 +8,8 @@
         active-text-color="#fff"
         text-color="#fff"
         :router="true"
-        
+        v-for="item in navmsg"
+        :key="item.id"
       >
         <el-menu-item index="/home">首页</el-menu-item>
         <el-menu-item index="/gsosp">科普概况</el-menu-item>

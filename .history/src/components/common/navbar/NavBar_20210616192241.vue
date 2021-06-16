@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { findContype } from "@/api/index";
 import NavigationBar from "components/common/navigation/NavigationBar.vue";
 export default {
   data() {
     return {
+      navmsg: [],
     };
   },
   components: {

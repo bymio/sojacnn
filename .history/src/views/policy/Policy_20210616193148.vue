@@ -70,6 +70,7 @@ export default {
       this.MenuList = [...result.data.data.items];
       console.log(this.MenuList);
     },
+
     saveNavState(path) {
       window.sessionStorage.setItem("activeIndex", path);
       this.activeIndex = path;

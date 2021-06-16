@@ -8,9 +8,9 @@
         active-text-color="#fff"
         text-color="#fff"
         :router="true"
-        
+        v-for="(item in navmsg" :key="item.id"
       >
-        <el-menu-item index="/home">首页</el-menu-item>
+        <el-menu-item index="/home">本站首页</el-menu-item>
         <el-menu-item index="/gsosp">科普概况</el-menu-item>
         <el-menu-item index="/policy">政策法规</el-menu-item>
         <el-menu-item index="/scienceproject">科普项目</el-menu-item>
@@ -47,11 +47,7 @@ export default {
     async handleFindContype() {
       let result = await findContype();
       this.navmsg = result.data.data.item;
-      console.log(this.navmsg);
-    },
-    saveNavState(path) {
-      window.sessionStorage.setItem("activeIndex", path);
-      this.activeIndex = path;
+      // console.log(this.navmsg);
     },
   },
 

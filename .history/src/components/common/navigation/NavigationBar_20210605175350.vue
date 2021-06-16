@@ -8,9 +8,8 @@
         active-text-color="#fff"
         text-color="#fff"
         :router="true"
-        
       >
-        <el-menu-item index="/home">首页</el-menu-item>
+        <el-menu-item index="/home">本站首页</el-menu-item>
         <el-menu-item index="/gsosp">科普概况</el-menu-item>
         <el-menu-item index="/policy">政策法规</el-menu-item>
         <el-menu-item index="/scienceproject">科普项目</el-menu-item>
@@ -29,8 +28,6 @@
 </template>
 
 <script>
-import { findContype } from "@/api/index";
-
 import TabBar from "components/common/tabbar/TabBar";
 import ContactInformationBar from "components/common/contact-information/ContactInformationBar";
 import TabBarItem from "components/common/tabbar/TabBarItem";
@@ -40,20 +37,8 @@ export default {
       navmsg: [],
     };
   },
-  mounted() {
-    this.handleFindContype();
-  },
-  methods: {
-    async handleFindContype() {
-      let result = await findContype();
-      this.navmsg = result.data.data.item;
-      console.log(this.navmsg);
-    },
-    saveNavState(path) {
-      window.sessionStorage.setItem("activeIndex", path);
-      this.activeIndex = path;
-    },
-  },
+  mounted() {},
+  methods: {},
 
   components: {
     TabBar,
