@@ -4,11 +4,12 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
+        <img src="@/assets/img/houtai.jpg" alt="平顶山学院">
         <span>后台管理</span>
       </div>
       <el-button type='info' @click="loginOut">退出</el-button>
     </el-header>
-    <el-container>
+    <el-container class="container">
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? '64px' : '200px' ">
         <!-- 展开 收缩 -->
@@ -109,10 +110,11 @@ export default {
 .el-header div span{
   margin-left: 15px;
 }
-/* .el-header div img{
+.el-header div img{
   width: 40px;
   height: 40px;
-} */
+  border-radius: 50%;
+}
 /* 菜单栏收缩与展开 */
 .toggle-button{
   background-color: #4A5064;
@@ -125,7 +127,7 @@ export default {
   cursor: pointer;
 }
 .el-aside {
-  height: 800px;
+  height: 750px;
   background-color: #333744;
   color: #000;
   transition: .5s;
