@@ -1,6 +1,9 @@
 <template>
   <div>
-    <el-card>
+    <el-card shadow="hover">
+      <el-breadcrumb class="el-breadcrumb" separator="/">
+        <el-breadcrumb-item :to="{ path: '/administrators/newsList2/find' }">查找新闻</el-breadcrumb-item>
+      </el-breadcrumb>
        <!-- 新闻类型 -->
       <el-select
         v-model="value"
@@ -148,6 +151,9 @@ export default {
 }
 </script>
 <style scoped>
+.el-breadcrumb{
+  margin-bottom: 10px;
+}
 .table{
   margin-top: 20px;
 }

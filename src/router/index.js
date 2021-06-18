@@ -93,10 +93,6 @@ const routes = [{
           path: '/administrators/newsList',
           component: newsList
       },
-      // {
-      //     path: '/administrators/newsList2',
-      //     component: newsList2
-      // },
       {
           path: '/administrators/newsList3',
           component: newsList3

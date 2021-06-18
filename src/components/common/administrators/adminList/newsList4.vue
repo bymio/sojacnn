@@ -1,6 +1,9 @@
 <template>
   <div>
-    <el-card>
+    <el-card shadow="hover">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/administrators/newsList4' }">新闻类别</el-breadcrumb-item>
+      </el-breadcrumb>
       <el-tabs v-model="addParams.contypeId" @tab-click="handleClick">
         <el-tab-pane v-for="(item,id) in newsXing" :key="id" 
         :label="item.contypeName" 
@@ -98,10 +101,12 @@ export default {
     async findNewsXing() {//请求所有新闻类型
       const res = await findContype();
       // console.log(res);
+      if(res.data.code !== 200)return
       this.newsXing = res.data.data.item;
     },
     async getNewsBie(){//根据新闻类型id获取类别
       const res = await findCategoryByContypeId(this.addParams)
+      if(res.data.code !== 200)return
       this.newsBie = res.data.data.items
     },
     editNewsBie(data){//点击修改按钮触发

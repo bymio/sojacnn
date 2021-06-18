@@ -5,7 +5,7 @@
     <el-header>
       <div>
         <img src="@/assets/img/houtai.jpg" alt="平顶山学院">
-        <span>后台管理</span>
+        <span>新闻后台管理</span>
       </div>
       <el-button type='info' @click="loginOut">退出</el-button>
     </el-header>
@@ -96,11 +96,10 @@ export default {
 }
 .el-header {
     background-color: #373d41;
-    color: #000;
     display: flex;
     justify-content:space-between;
     align-items: center;
-    color: #fff;
+    color: #eee;
     font-size: 20px;
 }
 .el-header div{
@@ -137,7 +136,7 @@ export default {
 }
 
 .el-main {
-  background-color: #EAEDF1;
+  background-color: #fff;
   color: #000;
 }
 /* 给一级菜单图标设置右边距 */

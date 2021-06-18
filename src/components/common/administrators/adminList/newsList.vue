@@ -1,6 +1,9 @@
 <template>
   <div>
-    <el-card>
+    <el-card shadow="hover">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/administrators/newsList' }">角色管理</el-breadcrumb-item>
+      </el-breadcrumb>
        <el-table :data="roleList" stripe style="width: 100%" :border = 'true'>
         <el-table-column prop="id" label="ID" width="80px"></el-table-column>
         <el-table-column prop="roleName" label="姓名" width="180"></el-table-column>
@@ -37,5 +40,7 @@ export default {
 }
 </script>
 <style scoped>
-
+.el-breadcrumb{
+  margin-bottom: 10px;
+}
 </style>

@@ -1,8 +1,14 @@
 <template>
   <div>
-    <el-card>
+    <el-card shadow="hover">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/administrators/newsList3' }">新闻类型</el-breadcrumb-item>
+      </el-breadcrumb>
       <el-button class="addButton" type="primary" @click="showNewsXingDialog">添加新闻类型</el-button>
-      <el-table :data="newsXing" stripe border style="width: 100%">
+      <el-table :data="newsXing" stripe border style="width: 100%"  >
+        <!-- v-loading.fullscreen.lock="loading"
+        element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0, 0, 0, 0.8)" -->
         <el-table-column  type="expand" width="40px">
           <template slot-scope="scope">
             <!-- {{scope.row}} -->
@@ -93,7 +99,9 @@ export default {
         p:1
       },
       // 存放新闻类别数据
-      newsBie:[]
+      newsBie:[],
+      // 加载
+      loading:true
     };
   },
   created() {
@@ -107,6 +115,7 @@ export default {
       //请求所有新闻类型
       const res = await findContype();
       // console.log(res);
+      if(res.data.code !== 200)return
       this.newsXing = res.data.data.item;
       // console.log(this.newsXing);
     },
@@ -134,7 +143,7 @@ export default {
           type: "warning",
         }
       ).catch((err) => err);
-      if (resultConfirm !== "confirm") return this.$message.info("已取消删除");
+      if (resultConfirm !== "confirm") return this.$message.info('已取消删除');
       const res = await removeNewsXing(id);
       console.log(res);
       this.$message.success("删除成功");
@@ -161,7 +170,7 @@ export default {
     },
     async findNewsBie(){
       const res = await getNewsBie(this.newsXingParms)
-      console.log(res)
+      // console.log(res)
       this.newsBie = res.data.data.items
     }
   },
@@ -169,7 +178,7 @@ export default {
 </script>
 <style scoped>
 .addButton{
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 .news {
   margin-bottom: 10px;
