@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-  // 1.安装插件
-  Vue.use(VueRouter)
+// 1.安装插件
+Vue.use(VueRouter)
 //登录
 const Login = () => import('../components/common/login/Login.vue')
 //home相关
+
 const Home = () => import('../views/home/Home')
 const HomeImgInfo = () => import('../views/home/home-img-info/HomeImgInfo.vue')
 const Circulars = () => import('../views/home/circulars/substance/Substance.vue')
@@ -33,6 +34,8 @@ const newsList4 = () => import('../components/common/administrators/adminList/ne
 //科普概况
 const gsNavigation = () => import('../views/gsosp/correspondingcontent/1.vue')
 const gsNavigation2 = () => import('../views/gsosp/correspondingcontent/2.vue')
+const gsNavigation3 = () => import('../views/gsosp/correspondingcontent/3.vue')
+const gsNavigation4 = () => import('../views/gsosp/correspondingcontent/4.vue')
 
 //政策法规
 const poNavigation = () => import('../views/policy/correspondingcontent/1.vue')
@@ -74,8 +77,8 @@ Vue.use(VueRouter)
 // 2.创建router
 const routes = [{
     path: '',
-    id : "",
-    redirect: '/home'
+    id: "",
+    redirect: '/nav/1'
   },
   {
     path: '/login',
@@ -84,38 +87,35 @@ const routes = [{
   {
     path: '/administrators',
     component: Administrators,
-    children: [
-      {
-        path:'',
-        redirect:'/administrators/newsList'
+    children: [{
+        path: '',
+        redirect: '/administrators/newsList'
       },
       {
-          path: '/administrators/newsList',
-          component: newsList
+        path: '/administrators/newsList',
+        component: newsList
       },
       {
-          path: '/administrators/newsList3',
-          component: newsList3
+        path: '/administrators/newsList3',
+        component: newsList3
       },
       {
-          path: '/administrators/newsList4',
-          component: newsList4
+        path: '/administrators/newsList4',
+        component: newsList4
       },
       {
-          path: '/administrators/newsList2/push',
-          component: newsList2push
+        path: '/administrators/newsList2/push',
+        component: newsList2push
       },
       {
-          path: '/administrators/newsList2/find',
-          component: newsList2find
+        path: '/administrators/newsList2/find',
+        component: newsList2find
       }
     ]
   },
+
   {
-    path: '/home',
-    meta: {
-      title: '首页'
-    },
+    path: '/nav/1',
     component: Home,
   },
   {
@@ -135,7 +135,32 @@ const routes = [{
     component: College
   },
   {
-    path: '/policy',
+    path: '/nav/2',
+    component: GsoSP,
+    children: [{
+        path: '',
+        redirect: '/1'
+      },
+      {
+        path: '/1',
+        component: gsNavigation
+      },
+      {
+        path: '/2',
+        component: gsNavigation2,
+      },
+      {
+        path: '/4',
+        component: gsNavigation3,
+      },
+      {
+        path: '/5',
+        component: gsNavigation4,
+      },
+    ]
+  },
+  {
+    path: '/nav/3',
     component: Policy,
     children: [{
         path: '',
@@ -144,11 +169,11 @@ const routes = [{
 
       {
         path: '/6',
-        component: poNavigation3,
+        component: poNavigation,
       },
       {
         path: '/7',
-        component: poNavigation4,
+        component: poNavigation2,
       },
       {
         path: '/8',
@@ -161,28 +186,11 @@ const routes = [{
     ]
   },
   {
-    path: '/gsosp',
-    component: GsoSP,
-    children: [{
-        path: '',
-        redirect: '/index1'
-      },
-      {
-        path: '/index1',
-        component: gsNavigation
-      },
-      {
-        path: '/index2',
-        component: gsNavigation2,
-      }
-    ]
-  },
-  {
-    path: '/scienceproject',
+    path: '/nav/4',
     component: ScienceProject
   },
   {
-    path: '/academicexchange',
+    path: '/nav/5',
     component: AcademicExchange,
     children: [{
         path: '',
@@ -199,11 +207,11 @@ const routes = [{
     ]
   },
   {
-    path: '/businessguide',
+    path: '/nav/6',
     component: BusinessGuide
   },
   {
-    path: '/popularscience',
+    path: '/nav/7',
     component: PopularScience,
     children: [{
         path: '',
@@ -220,7 +228,7 @@ const routes = [{
     ]
   },
   {
-    path: '/contact',
+    path: '/nav/9',
     component: Contact
   },
 ]
@@ -231,11 +239,11 @@ const router = new VueRouter({
 // 路由导航守卫
 router.beforeEach((to, from, next) => {
   // 如果去登录页面，放行
-  if(to.path === '/administrators/newsList'){
+  if (to.path === '/administrators/newsList') {
     // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
-    if (!document.cookie)return next('/login')
+    if (!document.cookie) return next('/login')
     next()
-  }else{
+  } else {
     next()
   }
 })

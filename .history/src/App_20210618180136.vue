@@ -1,0 +1,31 @@
+<template>
+  <div id="app" class="wrapper">
+    <router-view />
+    <!-- <div class="mec">
+
+    <HelloWorld />
+    </div> -->
+
+  </div>
+</template>
+
+<script>
+import MainTabBar from "components/content/mainTabbar/MainTabBar.vue";
+
+export default {
+  name: "app",
+  data() {
+    return {
+      
+    }
+  },
+  components: {
+    MainTabBar,
+    // HelloWorld,
+  },
+};
+</script>
+
+<style>
+@import "assets/css/base.css";
+</style>

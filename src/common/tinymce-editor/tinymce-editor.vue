@@ -14,7 +14,7 @@
   import tinymce from 'tinymce/tinymce'
   import Editor from '@tinymce/tinymce-vue'
   import 'tinymce/themes/silver/theme'
-  import 'tinymce/icons/default/icons';
+  // import 'tinymce/icons/default/icons';
   //编辑器插件plugins
   // 更多插件参考：https://www.tiny.cloud/docs/plugins/
   //https://blog.csdn.net/guochengabcd/article/details/107860463

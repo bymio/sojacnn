@@ -1,0 +1,30 @@
+<template>
+  <div>
+    <navigation-bar></navigation-bar>
+    
+   
+  </div>
+</template>
+
+<script>
+import { findContype } from "@/api/index";
+import NavigationBar from "components/common/navigation/NavigationBar.vue";
+export default {
+  data() {
+    return {
+      navmsg: [],
+    };
+  },
+  components: {
+    NavigationBar,
+  },
+  methods: {
+    
+  },
+  mounted() {
+  },
+};
+</script>
+
+<style>
+</style>

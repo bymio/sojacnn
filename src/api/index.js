@@ -84,6 +84,7 @@ export const removeNews = (id) => {
   })
 }
 
+
 // 获取角色
 export const getRole = (p) => {
   let param = new URLSearchParams()
@@ -94,6 +95,7 @@ export const getRole = (p) => {
     params:param
   })
 }
+
 
 // 添加新闻类型
 export const newsXing = (data) => {
