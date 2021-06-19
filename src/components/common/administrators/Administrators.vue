@@ -2,75 +2,69 @@
   <!-- 内容区域 -->
     <el-container class="home-container">
       <!-- 侧边栏 -->
-        <el-aside :width="isCollapse ? '64px' : '160px'">
-          <div class="aside-top">
-            <img class="schoolIcon" src="@/assets/img/houtai.jpg" alt="平顶山学院" />
-            <span>后台管理</span>
-          </div>
-          <!-- 展开 收缩 -->
-          <div class="toggle-button" @click="toggleCollapse">|||</div>
-          <!-- 侧边栏菜单 -->
-          <el-menu
-            background-color="#333744"
-            text-color="#fff"
-            active-text-color="#409EFF"
-            :unique-opened="true"
-            :collapse-transition="false"
-            :collapse="isCollapse"
-            :router="true"
-            :default-active="$route.path"
-          >
-            <el-menu-item index="/administrators/newsList">
-              <i class="el-icon-user-solid"></i>
-              <span slot="title">角色管理</span>
-            </el-menu-item>
-            <el-submenu index="/administrators/newsList2">
-              <template slot="title">
-                <i class="el-icon-menu"></i>
-                <span>新闻主体</span>
-              </template>
+      <el-aside :width="isCollapse ? '64px' : '160px'">
+        <div class="aside-top">
+          <img class="schoolIcon" src="@/assets/img/houtai.jpg" alt="平顶山学院" />
+          <span>后台管理</span>
+        </div>
+        <!-- 展开 收缩 -->
+        <div class="toggle-button" @click="toggleCollapse">|||</div>
+        <!-- 侧边栏菜单 -->
+        <el-menu
+          background-color="#333744"
+          text-color="#fff"
+          active-text-color="#409EFF"
+          :unique-opened="true"
+          :collapse-transition="false"
+          :collapse="isCollapse"
+          :router="true"
+          :default-active="$route.path"
+        >
+          <el-menu-item index="/administrators/newsList">
+            <i class="el-icon-user-solid"></i>
+            <span slot="title">角色管理</span>
+          </el-menu-item>
+          <el-submenu index="/administrators/newsList2">
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span>新闻主体</span>
+            </template>
 
-              <el-menu-item index="/administrators/newsList2/push">
-                <i class="el-icon-circle-plus"></i>
-                <span slot="title">发布新闻</span>
-              </el-menu-item>
-              <el-menu-item index="/administrators/newsList2/find">
-                <i class="el-icon-zoom-in"></i>
-                <span slot="title">查找新闻</span>
-              </el-menu-item>
-            </el-submenu>
-            <el-menu-item index="/administrators/newsList3">
-              <i class="el-icon-document"></i>
-              <span slot="title">新闻类型</span>
+            <el-menu-item index="/administrators/newsList2/push">
+              <i class="el-icon-circle-plus"></i>
+              <span slot="title">发布新闻</span>
             </el-menu-item>
-            <el-menu-item index="/administrators/newsList4">
-              <i class="el-icon-document"></i>
-              <span slot="title">新闻类别</span>
+            <el-menu-item index="/administrators/newsList2/find">
+              <i class="el-icon-zoom-in"></i>
+              <span slot="title">查找新闻</span>
             </el-menu-item>
-          </el-menu>
-        </el-aside>
-      
-      <el-container class="container">
-        <!-- 头部区域 -->
-      <el-header>
+          </el-submenu>
+          <el-menu-item index="/administrators/newsList3">
+            <i class="el-icon-document"></i>
+            <span slot="title">新闻类型</span>
+          </el-menu-item>
+          <el-menu-item index="/administrators/newsList4">
+            <i class="el-icon-document"></i>
+            <span slot="title">新闻类别</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside> 
+      <!-- 右侧主体区域 -->
+      <el-main>
         <el-dropdown trigger="click" class="dropdown" @command="loginOut">
-          <span class="el-dropdown-link">
+          <div class="el-dropdown-link">
             {{userName}}
             <i class="el-icon-caret-bottom el-icon--right"></i>
-          </span>
+          </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item class="clearfix">
               退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-      </el-header>
-        <!-- 右侧主体区域 -->
-        <el-main>
-          <!-- 路由占位符 -->
-          <router-view></router-view>
-        </el-main>
-      </el-container>
+        <!-- 路由占位符 -->
+        <router-view></router-view>
+      </el-main>
     </el-container>
 </template>
 
@@ -125,22 +119,20 @@ export default {
   height: 100%;
   width: 100%;
 }
-.el-header {
-  height: 40px;
-  background-color: #fff;
-  /* background-color: #e5f2fa; */
-  font-size: 14px;
+.el-main{
+  position: relative;
 }
-.dropdown{
-  float: right;
-  line-height: 60px;
-  margin-right: 10px;
+.el-dropdown{
+  width: 200px;
+  height: 20px;
+  /* background-color: green; */
+  margin: 10px 0;
+  display: block;
+  /* float: right; */
+  margin-left: 92%;
 }
 .el-dropdown-link:hover{
   color: gold;
-}
-.el-header div span {
-  color: #000;
 }
 .aside-top{
   margin: 10px 0;
@@ -178,6 +170,7 @@ export default {
 
 .el-main {
   background-color: #fff;
+  padding: 0 10px;
 }
 /* 给一级菜单图标设置右边距 */
 .iconfont {
