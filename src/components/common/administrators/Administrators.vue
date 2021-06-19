@@ -1,51 +1,12 @@
 <template>
-    <!-- 内容区域 -->
-  <el-container class="home-container">
-    <!-- 头部区域 -->
-    <el-header>
-      <div>
-        <img src="@/assets/img/houtai.jpg" alt="平顶山学院">
-        <span>新闻后台管理</span>
-      </div>
-      <el-button type='info' @click="loginOut">退出</el-button>
-    </el-header>
-    <el-container class="container">
-      <!-- 侧边栏 -->
-      <el-aside :width="isCollapse ? '64px' : '200px' ">
-        <!-- 展开 收缩 -->
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
-        <!-- 侧边栏菜单 -->
-        <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF"
-          :unique-opened = 'true' :collapse-transition = 'false' :collapse = 'isCollapse'
-          :router = 'true' :default-active="$route.path"
-        >
-          <el-menu-item index="/administrators/newsList">
-            <i class="el-icon-user-solid"></i>
-            <span slot="title">角色管理</span>
-          </el-menu-item>
-          <el-submenu index="/administrators/newsList2">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              <span>新闻主体</span>
-            </template>
-            
-            <el-menu-item index="/administrators/newsList2/push">
-              <i class="el-icon-circle-plus"></i>
-              <span slot="title">发布新闻</span>
-
   <!-- 内容区域 -->
     <el-container class="home-container">
-      <!-- 头部区域 -->
-      <el-header>
-        <div>
-          <img src="@/assets/img/houtai.jpg" alt="平顶山学院" />
-          <span>后台管理</span>
-        </div>
-        <el-button type="info" @click="loginOut">退出</el-button>
-      </el-header>
-      <el-container class="container">
-        <!-- 侧边栏 -->
-        <el-aside :width="isCollapse ? '64px' : '200px'">
+      <!-- 侧边栏 -->
+        <el-aside :width="isCollapse ? '64px' : '160px'">
+          <div class="aside-top">
+            <img class="schoolIcon" src="@/assets/img/houtai.jpg" alt="平顶山学院" />
+            <span>后台管理</span>
+          </div>
           <!-- 展开 收缩 -->
           <div class="toggle-button" @click="toggleCollapse">|||</div>
           <!-- 侧边栏菜单 -->
@@ -88,6 +49,22 @@
             </el-menu-item>
           </el-menu>
         </el-aside>
+      
+      <el-container class="container">
+        <!-- 头部区域 -->
+      <el-header>
+        <el-dropdown trigger="click" class="dropdown" @command="loginOut">
+          <span class="el-dropdown-link">
+            {{userName}}
+            <i class="el-icon-caret-bottom el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item class="clearfix">
+              退出登录
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-header>
         <!-- 右侧主体区域 -->
         <el-main>
           <!-- 路由占位符 -->
@@ -105,15 +82,22 @@ export default {
     return {
       // 菜单栏折叠
       isCollapse: false,
+      // 用户名
+      userName:''
     };
   },
+  created(){
+    this.getUserName()
+  },
   methods: {
-    toggleCollapse() {
-      //点击按钮，进行展开与收缩
+    getUserName(){//页面创建之后获得用户名
+      this.userName =  window.sessionStorage.getItem('userName')
+    },
+    toggleCollapse() {//点击按钮，进行展开与收缩
       this.isCollapse = !this.isCollapse;
     },
-    loginOut() {
-      //点击退出按钮退出登录
+    loginOut() {//点击退出按钮退出登录
+      console.log('hello')
       // 把cookie以'='分割，取key值
       const cookie = document.cookie.split("=")[0];
       function clearCookie(cname, cvalue, exdays) {
@@ -124,8 +108,9 @@ export default {
         document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/"; //path=/是根路径
       }
       clearCookie(cookie, "", -1);
-
       this.$router.push("/login");
+      // 清除userName
+      window.sessionStorage.clear()
       this.$message.info("已退出登录状态");
     },
   },
@@ -141,23 +126,33 @@ export default {
   width: 100%;
 }
 .el-header {
-    background-color: #373d41;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    color: #eee;
-    font-size: 20px;
+  height: 40px;
+  background-color: #fff;
+  /* background-color: #e5f2fa; */
+  font-size: 14px;
 }
-.el-header div {
-  display: flex;
-  align-items: center;
+.dropdown{
+  float: right;
+  line-height: 60px;
+  margin-right: 10px;
+}
+.el-dropdown-link:hover{
+  color: gold;
 }
 .el-header div span {
-  margin-left: 15px;
+  color: #000;
 }
-.el-header div img {
-  width: 40px;
-  height: 40px;
+.aside-top{
+  margin: 10px 0;
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+}
+.schoolIcon {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 /* 菜单栏收缩与展开 */
@@ -183,7 +178,6 @@ export default {
 
 .el-main {
   background-color: #fff;
-  color: #000;
 }
 /* 给一级菜单图标设置右边距 */
 .iconfont {

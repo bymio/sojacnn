@@ -35,13 +35,6 @@
           </template>
         </el-table-column>
       </el-table>
-      <!-- 分页 -->
-      <el-pagination background l
-        ayout="prev, pager, next" 
-        :total="this.newsXing.length"
-        :page-size="queryInfo.pagesize"
-        :current-page="queryInfo.pagenum">
-      </el-pagination>
     </el-card>
 
     <!-- 添加新闻类型对话框 -->

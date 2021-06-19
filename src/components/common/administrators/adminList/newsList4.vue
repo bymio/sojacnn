@@ -131,17 +131,15 @@ export default {
       if(res.data.code !== 200)return
       this.newsXing = res.data.data.item;
     },
-<<<<<<< HEAD
     async getNewsBie(){//根据新闻类型id获取类别
       const res = await findCategoryByContypeId(this.addParams)
       if(res.data.code !== 200)return
       this.newsBie = res.data.data.items
-=======
+    },
     async getNewsBie() {
       //根据新闻类型id获取类别
       const res = await findCategoryByContypeId(this.addParams);
       this.newsBie = res.data.data.items;
->>>>>>> 3145e759b08f728d52b6b4cf602d93527c1c4ff2
     },
     editNewsBie(data) {
       //点击修改按钮触发

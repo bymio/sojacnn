@@ -42,7 +42,11 @@ export default {
         const result = await login(data);
         if(result.data.code !== 200)return this.$message.error('用户名或密码输入错误')
         this.$message.success('登录成功')
-        console.log(document.cookie)
+        // 获取用户名
+        const {userName} = result.data.data.item 
+        console.log(userName)
+        // 将用户名保存到sessionStorage
+        window.sessionStorage.setItem('userName',userName)
         this.$router.push(this.path);
       } else {
         this.$message.error('用户名或密码输入错误')
