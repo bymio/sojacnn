@@ -49,22 +49,27 @@
           </el-menu-item>
         </el-menu>
       </el-aside> 
-      <!-- 右侧主体区域 -->
-      <el-main>
-        <el-dropdown trigger="click" class="dropdown" @command="loginOut">
-          <div class="el-dropdown-link">
-            {{userName}}
-            <i class="el-icon-caret-bottom el-icon--right"></i>
-          </div>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item class="clearfix">
-              退出登录
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <!-- 路由占位符 -->
-        <router-view></router-view>
-      </el-main>
+      <el-container>
+        <el-header class="header" style="height: 40px;">
+          <el-dropdown trigger="click" class="dropdown" @command="loginOut">
+            <div class="el-dropdown-link">
+              {{userName}}
+              <i class="el-icon-caret-bottom el-icon--right"></i>
+            </div>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item class="clearfix">
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-header>
+
+         <!-- 右侧主体区域 -->
+        <el-main class="main">
+          <!-- 路由占位符 -->
+          <router-view></router-view>
+        </el-main>
+      </el-container>
     </el-container>
 </template>
 
@@ -111,28 +116,29 @@ export default {
 };
 </script>
 
-<style>
+<style >
 #main-tabbar{
   display: none;
 }
 .home-container {
   height: 100%;
   width: 100%;
+  /* overflow: hidden; */
 }
-.el-main{
-  position: relative;
+.header{
+  line-height: 40px;
+}
+.main{
+  background-color: #fff;
+  padding: 0 10px;
+  /* height: calc(100vh-100px); */
+  height: 400px;
 }
 .el-dropdown{
-  width: 200px;
-  height: 20px;
-  /* background-color: green; */
-  margin: 10px 0;
-  display: block;
-  /* float: right; */
-  margin-left: 92%;
+  float: right;
 }
 .el-dropdown-link:hover{
-  color: gold;
+  color: rgb(39, 121, 32);
 }
 .aside-top{
   margin: 10px 0;
@@ -159,19 +165,15 @@ export default {
   cursor: pointer;
 }
 .el-aside {
-  height: 750px;
+  height: 100vh;
   background-color: #333744;
-  color: #000;
   transition: 0.5s;
+  overflow: hidden;
 }
 .el-aside .el-menu {
   border-right: none;
 }
 
-.el-main {
-  background-color: #fff;
-  padding: 0 10px;
-}
 /* 给一级菜单图标设置右边距 */
 .iconfont {
   margin-right: 10px;
