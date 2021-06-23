@@ -144,9 +144,8 @@ export default {
       this.newsTi.categoryId = this.value2
     },
     async getNewsTi(){//点击发布新闻按钮触发
-      // console.log(this.newsTi)
       const res = await getNewsTiBydata(this.newsTi)
-      console.log(res)
+      // console.log(res)
       if(res.data.code !== 200)return this.$message.error('插入新闻失败')
       return this.$message.success('插入新闻成功')
     },

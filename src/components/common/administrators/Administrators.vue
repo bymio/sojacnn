@@ -20,16 +20,11 @@
           :router="true"
           :default-active="$route.path"
         >
-          <el-menu-item index="/administrators/newsList">
-            <i class="el-icon-user-solid"></i>
-            <span slot="title">角色管理</span>
-          </el-menu-item>
           <el-submenu index="/administrators/newsList2">
             <template slot="title">
               <i class="el-icon-menu"></i>
               <span>新闻主体</span>
             </template>
-
             <el-menu-item index="/administrators/newsList2/push">
               <i class="el-icon-circle-plus"></i>
               <span slot="title">发布新闻</span>
@@ -47,10 +42,15 @@
             <i class="el-icon-document"></i>
             <span slot="title">新闻类别</span>
           </el-menu-item>
+           <el-menu-item index="/administrators/newsList">
+            <i class="el-icon-user-solid"></i>
+            <span slot="title">角色管理</span>
+          </el-menu-item>
         </el-menu>
       </el-aside> 
       <el-container>
         <el-header class="header" style="height: 40px;">
+          <div class="header-tai" @click="pushPath"><i class="el-icon-s-promotion"></i>前台</div>
           <el-dropdown trigger="click" class="dropdown" @command="loginOut">
             <div class="el-dropdown-link">
               {{userName}}
@@ -91,12 +91,12 @@ export default {
   methods: {
     getUserName(){//页面创建之后获得用户名
       this.userName =  window.sessionStorage.getItem('userName')
+      console.log(this.userName)
     },
     toggleCollapse() {//点击按钮，进行展开与收缩
       this.isCollapse = !this.isCollapse;
     },
     loginOut() {//点击退出按钮退出登录
-      console.log('hello')
       // 把cookie以'='分割，取key值
       const cookie = document.cookie.split("=")[0];
       function clearCookie(cname, cvalue, exdays) {
@@ -107,11 +107,14 @@ export default {
         document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/"; //path=/是根路径
       }
       clearCookie(cookie, "", -1);
-      this.$router.push("/login");
       // 清除userName
       window.sessionStorage.clear()
+      this.$router.push("/login");
       this.$message.info("已退出登录状态");
     },
+    pushPath(){//点击前台按钮跳转
+      this.$router.push('/')
+    }
   },
 };
 </script>
@@ -126,7 +129,12 @@ export default {
   /* overflow: hidden; */
 }
 .header{
-  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-tai:hover{
+  color: chocolate;
 }
 .main{
   background-color: #fff;
@@ -134,11 +142,11 @@ export default {
   /* height: calc(100vh-100px); */
   height: 400px;
 }
-.el-dropdown{
+.dropdown{
   float: right;
 }
 .el-dropdown-link:hover{
-  color: rgb(39, 121, 32);
+  color: red;
 }
 .aside-top{
   margin: 10px 0;

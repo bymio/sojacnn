@@ -89,7 +89,7 @@ const routes = [{
     component: Administrators,
     children: [{
         path: '',
-        redirect: '/administrators/newsList'
+        redirect: '/administrators/newsList4'
       },
       {
         path: '/administrators/newsList',
@@ -243,7 +243,7 @@ router.beforeEach((to, from, next) => {
     // 去其他有权限页面，先判断令牌是否存在，不存在返回登录
     if (!document.cookie) return next('/login')
     next()
-  } else {
+  }else{
     next()
   }
 })
